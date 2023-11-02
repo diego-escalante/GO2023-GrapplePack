@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvhmc8dkqpgt8"]
+[gd_scene load_steps=2 format=3 uid="uid://bixt6ljfkrdo0"]
 
-[ext_resource type="Script" path="res://hello_world/hello_world.gd" id="1_5lw5u"]
+[ext_resource type="Script" path="res://hello_world/hello_world.gd" id="1_yd0gi"]
 
 [node name="hello_world" type="Node"]
-script = ExtResource("1_5lw5u")
+script = ExtResource("1_yd0gi")
