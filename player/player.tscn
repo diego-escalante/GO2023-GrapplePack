@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=8 format=3 uid="uid://blwf38bh4id4k"]
 
 [ext_resource type="Texture2D" uid="uid://8kj7wpm8mhxx" path="res://icon.svg" id="1_a205y"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
 [ext_resource type="Script" path="res://player/state_machine/state_machine.gd" id="3_1rcoo"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/platforming.gd" id="4_r0yds"]
+[ext_resource type="Script" path="res://player/state_machine/player_states/grappled.gd" id="5_s3ai3"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappling.gd" id="5_t7ult"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqqhr"]
@@ -37,6 +38,9 @@ one_shot = true
 [node name="CoyoteTimer" type="Timer" parent="StateMachine/Platforming"]
 wait_time = 0.1
 one_shot = true
+
+[node name="Grappled" type="Node" parent="StateMachine"]
+script = ExtResource("5_s3ai3")
 
 [node name="Grappling" type="Node" parent="StateMachine"]
 script = ExtResource("5_t7ult")

@@ -28,7 +28,7 @@ func physics_update(delta: float) -> void:
 	
 	# If the player grapples, switch states.
 	if state_machine.has_state("grappling") and input.get("grapple_pressed", false):
-		state_machine.transition_to("grappling", {"grapple_point": input.get("grapple_point")})
+		state_machine.transition_to("grappling")
 		return
 		
 	# Register jumps in the jump buffer.
@@ -60,7 +60,6 @@ func physics_update(delta: float) -> void:
 
 
 func exit() -> void:
-	player.velocity = Vector2.ZERO
 	_coyote_timer.stop()
 	_jump_buffer_timer.stop()
 	
@@ -72,8 +71,6 @@ func _read_input() -> Dictionary:
 		"jump_pressed": Input.is_action_just_pressed("jump"),
 		"jump_released": Input.is_action_just_released("jump"),
 		"grapple_pressed": Input.is_action_just_pressed("grapple"),
-		"grapple_released": Input.is_action_just_released("grapple"),
-		"grapple_point": player.get_global_mouse_position(),
 	}
 	
 
