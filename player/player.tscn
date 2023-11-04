@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=7 format=3 uid="uid://blwf38bh4id4k"]
 
-[ext_resource type="Script" path="res://player/player_movement.gd" id="1_8rwb2"]
 [ext_resource type="Texture2D" uid="uid://8kj7wpm8mhxx" path="res://icon.svg" id="1_a205y"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
+[ext_resource type="Script" path="res://player/state_machine/state_machine.gd" id="3_1rcoo"]
+[ext_resource type="Script" path="res://player/state_machine/player_states/platforming.gd" id="4_r0yds"]
+[ext_resource type="Script" path="res://player/state_machine/player_states/grappling.gd" id="5_t7ult"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqqhr"]
 size = Vector2(30, 31)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_8rwb2")
+script = ExtResource("1_ufqt5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(4.76837e-07, -1.90735e-06)
@@ -19,11 +22,21 @@ texture = ExtResource("1_a205y")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_tqqhr")
 
-[node name="JumpBufferTimer" type="Timer" parent="."]
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_1rcoo")
+_initial_state = NodePath("Platforming")
+
+[node name="Platforming" type="Node" parent="StateMachine"]
+script = ExtResource("4_r0yds")
+
+[node name="JumpBufferTimer" type="Timer" parent="StateMachine/Platforming"]
 process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="CoyoteTimer" type="Timer" parent="."]
+[node name="CoyoteTimer" type="Timer" parent="StateMachine/Platforming"]
 wait_time = 0.1
 one_shot = true
+
+[node name="Grappling" type="Node" parent="StateMachine"]
+script = ExtResource("5_t7ult")
