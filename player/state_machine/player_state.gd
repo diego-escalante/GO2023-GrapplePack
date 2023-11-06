@@ -3,6 +3,7 @@ class_name PlayerState
 
 var state_machine: StateMachine
 var player: Player
+var grapple: Grapple
 
 func _ready() -> void:
 	var parent = get_parent()
@@ -21,6 +22,7 @@ func _ready() -> void:
 		queue_free()
 		return
 	player = owner
+	grapple = player.get_node("Grapple")
 	state_machine = parent
 
 

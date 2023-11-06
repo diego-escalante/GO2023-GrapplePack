@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0h6gwsg2ewh2"]
+
+[ext_resource type="Script" path="res://objects/grapple.gd" id="1_iy5ks"]
+
+[node name="Grapple" type="Line2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+width = 4.0
+script = ExtResource("1_iy5ks")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 0)
+collision_mask = 5
+collide_with_areas = true

@@ -3,4 +3,8 @@
 [ext_resource type="Script" path="res://objects/grapple_area/grapple_area.gd" id="1_w8dn6"]
 
 [node name="GrappleArea" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+monitorable = false
 script = ExtResource("1_w8dn6")

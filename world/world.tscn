@@ -33,7 +33,7 @@ layer_0/tile_data = PackedInt32Array(720896, 0, 0, 0, 0, 0, 65536, 0, 0, 131072,
 position = Vector2(160, 112)
 
 [node name="GrappleArea" parent="." instance=ExtResource("3_3k67p")]
-position = Vector2(244, 76)
+position = Vector2(250, 100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleArea"]
 shape = SubResource("CircleShape2D_d5mwl")

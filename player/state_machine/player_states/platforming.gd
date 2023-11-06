@@ -18,6 +18,9 @@ var _current_gravity := _jump_gravity
 @onready var _jump_buffer_timer := $JumpBufferTimer as Timer
 @onready var _coyote_timer := $CoyoteTimer as Timer
 
+func enter(msg := {}) -> void:
+	if msg.has("initial_velocity"):
+		player.velocity = msg.get("initial_velocity")
 
 func physics_update(delta: float) -> void:
 	# Read input from the player.
@@ -27,7 +30,7 @@ func physics_update(delta: float) -> void:
 	var velocity := player.velocity
 	
 	# If the player grapples, switch states.
-	if state_machine.has_state("grappling") and input.get("grapple_pressed", false):
+	if state_machine.has_state("grappling") and input.get("grapple_pressed", false) and grapple.is_ready():
 		state_machine.transition_to("grappling")
 		return
 		

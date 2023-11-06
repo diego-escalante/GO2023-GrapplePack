@@ -23,7 +23,7 @@ func _ready() -> void:
 		queue_free()
 
 
-func get_grapple_point() -> Vector2:
+func get_grapple_point(mouse_position: Vector2) -> Vector2:
 	var shape := collision_shape.shape
 	var center := collision_shape.global_position
 	
@@ -32,10 +32,9 @@ func get_grapple_point() -> Vector2:
 	if shape is CapsuleShape2D:
 		var capsule := shape as CapsuleShape2D
 		var offset := Vector2(0, capsule.height / 2 - capsule.radius).rotated(collision_shape.global_rotation)
-		print("offset: %s" % offset)
 		var p1 = center - offset
 		var p2 = center + offset
-		return Geometry2D.get_closest_point_to_segment(get_global_mouse_position(), p1, p2)
+		return Geometry2D.get_closest_point_to_segment(mouse_position, p1, p2)
 	
 	# Grapple Area is a circle, the grapple point is the center.
 	return center

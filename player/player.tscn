@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=9 format=3 uid="uid://blwf38bh4id4k"]
 
 [ext_resource type="Texture2D" uid="uid://8kj7wpm8mhxx" path="res://icon.svg" id="1_a205y"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://player/state_machine/player_states/platforming.gd" id="4_r0yds"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappled.gd" id="5_s3ai3"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappling.gd" id="5_t7ult"]
+[ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://objects/grapple.tscn" id="6_quhdi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqqhr"]
 size = Vector2(30, 31)
@@ -22,6 +23,8 @@ texture = ExtResource("1_a205y")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_tqqhr")
+
+[node name="Grapple" parent="." instance=ExtResource("6_quhdi")]
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_1rcoo")
