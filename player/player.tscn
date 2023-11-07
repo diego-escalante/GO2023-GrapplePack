@@ -13,6 +13,7 @@ size = Vector2(30, 31)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_ufqt5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -39,6 +40,11 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CoyoteTimer" type="Timer" parent="StateMachine/Platforming"]
+wait_time = 0.1
+one_shot = true
+
+[node name="DropTimer" type="Timer" parent="StateMachine/Platforming"]
+process_callback = 0
 wait_time = 0.1
 one_shot = true
 

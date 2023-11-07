@@ -17,6 +17,12 @@ var _current_gravity := _jump_gravity
 
 @onready var _jump_buffer_timer := $JumpBufferTimer as Timer
 @onready var _coyote_timer := $CoyoteTimer as Timer
+@onready var _drop_timer := $DropTimer as Timer
+
+func _ready() -> void:
+	super()
+	# Reset one-way platform collisions each time the _drop_timer finishes.
+	_drop_timer.timeout.connect(func(): player.set_collision_mask_value(4, true))
 
 func enter(msg := {}) -> void:
 	if msg.has("initial_velocity"):
@@ -38,7 +44,7 @@ func physics_update(delta: float) -> void:
 	_update_jump_buffer(input.get("jump_pressed", false))
 	
 	# Handle vertical movement.
-	if _can_jump():
+	if _can_jump() and not input.get("down_held", false):
 		# Perform jump.
 		_jump_buffer_timer.stop()
 		_coyote_timer.stop()
@@ -54,6 +60,11 @@ func physics_update(delta: float) -> void:
 	
 	# Handle horizontal movement.
 	velocity.x = _calculate_run_velocity(velocity.x, input.get("h_axis", 0), delta)
+	
+	# Drop.
+	if input.get("down_held", false) and input.get("jump_pressed", false):
+		player.set_collision_mask_value(4, false)
+		_drop_timer.start()
 	
 	# Keep track of coyote time.
 	_update_coyote_timer()
@@ -71,6 +82,7 @@ func exit() -> void:
 func _read_input() -> Dictionary:
 	return {
 		"h_axis": Input.get_axis("left", "right"),
+		"down_held": Input.is_action_pressed("down"),
 		"jump_pressed": Input.is_action_just_pressed("jump"),
 		"jump_released": Input.is_action_just_released("jump"),
 		"grapple_pressed": Input.is_action_just_pressed("grapple"),

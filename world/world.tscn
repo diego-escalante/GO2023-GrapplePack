@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=9 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Texture2D" uid="uid://dm4tr58un6aml" path="res://16x16.png" id="1_uhlyf"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="2_6deeh"]
@@ -24,6 +24,9 @@ radius = 16.0
 radius = 16.0
 height = 132.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wa8tp"]
+size = Vector2(16, 16)
+
 [node name="world" type="TileMap"]
 tile_set = SubResource("TileSet_de25a")
 format = 2
@@ -44,3 +47,16 @@ position = Vector2(444, 76)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleArea2"]
 rotation = -0.785398
 shape = SubResource("CapsuleShape2D_k66do")
+
+[node name="OnewayPlatform" type="StaticBody2D" parent="."]
+position = Vector2(297, 315)
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="OnewayPlatform"]
+modulate = Color(1, 0.176471, 1, 1)
+texture = ExtResource("1_uhlyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnewayPlatform"]
+shape = SubResource("RectangleShape2D_wa8tp")
+one_way_collision = true
