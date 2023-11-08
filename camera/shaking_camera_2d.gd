@@ -14,7 +14,7 @@ var _current_trauma: float
 var _shake_strength: float
 var _time_elapsed_ms: float
 
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	_time_elapsed_ms += delta * 1000
 	
 	if not shake_enabled or is_equal_approx(_current_trauma, MIN_TRAUMA):

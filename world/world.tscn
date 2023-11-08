@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dm4tr58un6aml" path="res://16x16.png" id="1_uhlyf"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="2_6deeh"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_3k67p"]
-[ext_resource type="PackedScene" uid="uid://dwxndvq5w4qsf" path="res://camera/Camera.tscn" id="4_7gjvb"]
+[ext_resource type="Script" path="res://camera/shaking_camera_2d.gd" id="5_ygp26"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0j2w"]
 texture = ExtResource("1_uhlyf")
@@ -36,6 +36,9 @@ layer_0/tile_data = PackedInt32Array(720896, 0, 0, 0, 0, 0, 65536, 0, 0, 131072,
 [node name="Player" parent="." instance=ExtResource("2_6deeh")]
 position = Vector2(160, 112)
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera")
+
 [node name="GrappleArea" parent="." instance=ExtResource("3_3k67p")]
 position = Vector2(250, 100)
 
@@ -62,5 +65,13 @@ texture = ExtResource("1_uhlyf")
 shape = SubResource("RectangleShape2D_wa8tp")
 one_way_collision = true
 
-[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_7gjvb")]
-target = NodePath("../Player")
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(160, 112)
+ignore_rotation = false
+limit_left = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+script = ExtResource("5_ygp26")
