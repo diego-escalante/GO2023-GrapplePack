@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=9 format=3 uid="uid://blwf38bh4id4k"]
 
 [ext_resource type="Texture2D" uid="uid://8kj7wpm8mhxx" path="res://icon.svg" id="1_a205y"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappled.gd" id="5_s3ai3"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappling.gd" id="5_t7ult"]
 [ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://objects/grapple.tscn" id="6_quhdi"]
-[ext_resource type="PackedScene" uid="uid://dwxndvq5w4qsf" path="res://camera/Camera.tscn" id="8_d5pxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqqhr"]
 size = Vector2(30, 31)
@@ -54,5 +53,3 @@ script = ExtResource("5_s3ai3")
 
 [node name="Grappling" type="Node" parent="StateMachine"]
 script = ExtResource("5_t7ult")
-
-[node name="Camera" parent="." instance=ExtResource("8_d5pxj")]

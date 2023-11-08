@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=10 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Texture2D" uid="uid://dm4tr58un6aml" path="res://16x16.png" id="1_uhlyf"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="2_6deeh"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_3k67p"]
+[ext_resource type="PackedScene" uid="uid://dwxndvq5w4qsf" path="res://camera/Camera.tscn" id="4_7gjvb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0j2w"]
 texture = ExtResource("1_uhlyf")
@@ -60,3 +61,6 @@ texture = ExtResource("1_uhlyf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnewayPlatform"]
 shape = SubResource("RectangleShape2D_wa8tp")
 one_way_collision = true
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_7gjvb")]
+target = NodePath("../Player")
