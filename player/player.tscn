@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://player/state_machine/player_states/platforming.gd" id="4_r0yds"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappled.gd" id="5_s3ai3"]
 [ext_resource type="Script" path="res://player/state_machine/player_states/grappling.gd" id="5_t7ult"]
-[ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://objects/grapple.tscn" id="6_quhdi"]
+[ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://objects/grapple/grapple.tscn" id="6_quhdi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqqhr"]
 size = Vector2(30, 31)
