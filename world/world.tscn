@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhpnel4052tqj"]
 
-[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aesprite/tilemap.png" id="1_7tbwa"]
+[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="1_26n0q"]
 [ext_resource type="Texture2D" uid="uid://dm4tr58un6aml" path="res://16x16.png" id="1_uhlyf"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="2_6deeh"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_3k67p"]
 [ext_resource type="Script" path="res://camera/shaking_camera_2d.gd" id="5_ygp26"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6spcy"]
-texture = ExtResource("1_7tbwa")
+texture = ExtResource("1_26n0q")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
