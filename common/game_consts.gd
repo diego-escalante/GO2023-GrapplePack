@@ -1,3 +1,3 @@
 extends Node
 
-const PIXELS_PER_UNIT := 32
+const PIXELS_PER_UNIT := 16
