@@ -3,6 +3,7 @@ class_name PlayerState
 
 var state_machine: StateMachine
 var player: Player
+var sprite: AnimatedSprite2D
 var grapple: Grapple
 
 func _ready() -> void:
@@ -23,6 +24,7 @@ func _ready() -> void:
 		return
 	player = owner
 	grapple = player.get_node("Grapple")
+	sprite = player.get_node("AnimatedSprite2D")
 	state_machine = parent
 
 
