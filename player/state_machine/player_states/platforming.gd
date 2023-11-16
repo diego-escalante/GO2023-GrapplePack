@@ -72,6 +72,7 @@ func physics_update(delta: float) -> void:
 	# Drop.
 	if input.get("down_held", false) and input.get("jump_pressed", false):
 		player.set_collision_mask_value(4, false)
+		_jump_buffer_timer.stop()
 		_drop_timer.start()
 	
 	# Keep track of coyote time.
@@ -105,7 +106,7 @@ func update_animation(is_down_held: bool) -> void:
 	
 	# Player just grounded.
 	if not _prev_is_on_floor and player.is_on_floor():
-		sprite.play("land")
+		sprite.play("land" if not is_down_held else "crouch")
 		return
 	
 	match sprite.animation:

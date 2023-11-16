@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkx7ujsu6jxpr"]
+
+[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="1_acfgl"]
+[ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_86kv0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7sgt"]
+atlas = ExtResource("1_acfgl")
+region = Rect2(176, 96, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhvr7"]
+radius = 8.0
+
+[node name="Hook" type="Sprite2D"]
+texture = SubResource("AtlasTexture_v7sgt")
+
+[node name="GrappleArea" parent="." instance=ExtResource("3_86kv0")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleArea"]
+shape = SubResource("CircleShape2D_rhvr7")
