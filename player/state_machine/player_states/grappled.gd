@@ -2,7 +2,7 @@ extends PlayerState
 class_name Grappled
 
 @export var _grapple_speed := 40.0
-@export var _time_to_grapple_speed := 0.2
+@export var _time_to_grapple_speed := 0.5
 @export var _post_grapple_velocity := Vector2.UP * 15 * GameConsts.PIXELS_PER_UNIT
 
 var _grapple_point: Vector2

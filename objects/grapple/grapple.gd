@@ -33,7 +33,6 @@ func retract() -> void:
 func pull() -> void:
 	if _state != State.IDLE:
 		_state = State.PULLING
-		
 func is_ready() -> bool:
 	return _state == State.IDLE
 

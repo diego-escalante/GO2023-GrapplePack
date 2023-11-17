@@ -7,6 +7,7 @@ class_name Platforming
 @export var _jump_distance := 1.5
 @export var _jump_min_height := 0.5
 @export var _fall_distance := 1.2
+@export var _terminal_velocity := 7.0
 
 @onready var _acceleration := (_run_speed / _time_to_run_speed) if _time_to_run_speed > 0 else -1.0
 @onready var _jump_speed := 2 * _jump_height * _run_speed / _jump_distance
@@ -67,7 +68,7 @@ func physics_update(delta: float) -> void:
 			_current_gravity = _fall_gravity
 		elif input.get("jump_released", false):
 			_current_gravity = _jump_min_gravity
-		velocity.y += _current_gravity * delta * GameConsts.PIXELS_PER_UNIT
+		velocity.y = min(velocity.y + _current_gravity * delta * GameConsts.PIXELS_PER_UNIT, _terminal_velocity * GameConsts.PIXELS_PER_UNIT)
 	
 	# Drop.
 	if input.get("down_held", false) and input.get("jump_pressed", false):

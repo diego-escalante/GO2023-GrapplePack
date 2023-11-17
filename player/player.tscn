@@ -205,6 +205,8 @@ _initial_state = NodePath("Platforming")
 
 [node name="Platforming" type="Node" parent="StateMachine"]
 script = ExtResource("4_r0yds")
+_fall_distance = 1.5
+_terminal_velocity = 28.0
 
 [node name="JumpBufferTimer" type="Timer" parent="StateMachine/Platforming"]
 process_callback = 0
@@ -222,6 +224,7 @@ one_shot = true
 
 [node name="Grappled" type="Node" parent="StateMachine"]
 script = ExtResource("5_s3ai3")
+_grapple_speed = 20.0
 
 [node name="Grappling" type="Node" parent="StateMachine"]
 script = ExtResource("5_t7ult")
