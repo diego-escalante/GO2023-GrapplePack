@@ -17,8 +17,11 @@ func enter(_msg := {}) -> void:
 
 
 func physics_update(delta: float) -> void:
+	
 	_current_grapple_speed = min(_current_grapple_speed + _grapple_acceleration * delta, _grapple_speed)
-	player.velocity = player.position.direction_to(_grapple_point) * _current_grapple_speed * GameConsts.PIXELS_PER_UNIT
+	var grapple_velocity = player.position.direction_to(_grapple_point) * _current_grapple_speed * GameConsts.PIXELS_PER_UNIT
+	
+	player.velocity += grapple_velocity
 	
 	# If the player can reach the target this frame. (Oversimplified: ignores velocity's direction.)
 	if player.position.distance_to(_grapple_point) < player.velocity.length() * delta:

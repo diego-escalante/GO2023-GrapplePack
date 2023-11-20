@@ -1,4 +1,4 @@
-extends Line2D
+extends Node2D
 class_name Grapple
 
 signal extended(is_attached)
@@ -7,6 +7,8 @@ signal pulled
 enum State {IDLE, EXTENDING, EXTENDED, RETRACTING, PULLING}
 
 @export var _grapple_speed := 60.0
+@export var _input_enabled = true
+@export var _grapple_length := 5.0
 
 var target: Vector2
 var _state := State.IDLE
@@ -14,7 +16,20 @@ var _grapple_total_time: float
 var _grapple_time: float
 var _can_attach: bool
 
+@onready var _chain := $Chain as Line2D
+@onready var _hook := $Hook as Sprite2D
 @onready var _raycast := $RayCast2D as RayCast2D
+
+func _unhandled_input(event):
+	if event.is_action_pressed("grapple") and _state == State.IDLE:
+		extend(get_global_mouse_position())
+		pass
+	elif event.is_action_released("grapple") and (_state == State.EXTENDING or _state == State.EXTENDED):
+		print("retract")
+		# Retract
+		pass 
+		
+	
 
 func extend(to: Vector2) -> void:
 	_cast_ray(to)
@@ -68,7 +83,7 @@ func _physics_process(delta: float) -> void:
 
 func _cast_ray(to: Vector2):
 	_raycast.enabled = true
-	_raycast.target_position = _raycast.to_local(to)
+	_raycast.target_position = to_local(position.direction_to(to) * _grapple_length)
 	_raycast.force_raycast_update()
 	
 	if not _raycast.is_colliding():
@@ -88,4 +103,5 @@ func _cast_ray(to: Vector2):
 	
 
 func _set_grapple_head(pos: Vector2) -> void:
-	set_point_position(1, to_local(pos))
+	pass
+#	set_point_position(1, to_local(pos))

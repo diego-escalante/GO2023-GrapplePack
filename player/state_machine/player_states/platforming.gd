@@ -38,22 +38,12 @@ func physics_update(delta: float) -> void:
 	
 	# Get the current velocity of the player.
 	var velocity := player.velocity
-	
-	# If the player grapples, switch states.
-	if state_machine.has_state("grappling") and input.get("grapple_pressed", false) and grapple.is_ready():
-		state_machine.transition_to("grappling")
-		return
 		
 	# Register jumps in the jump buffer.
 	_update_jump_buffer(input.get("jump_pressed", false))
 	
 	# Handle horizontal movement.
 	velocity.x = _calculate_run_velocity(velocity.x, input.get("h_axis", 0), delta)
-#	if velocity.x != 0 and velocity.y == 0:
-#		sprite.set_animation("walk")
-#		sprite.flip_h = velocity.x < 0
-#	else:
-#		sprite.set_animation("idle")
 	
 	# Handle vertical movement.
 	if _can_jump() and not input.get("down_held", false):

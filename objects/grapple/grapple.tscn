@@ -1,12 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0h6gwsg2ewh2"]
+[gd_scene load_steps=5 format=3 uid="uid://d0h6gwsg2ewh2"]
 
 [ext_resource type="Script" path="res://objects/grapple/grapple.gd" id="1_iy5ks"]
+[ext_resource type="Texture2D" uid="uid://ck7n7p5dqrg5e" path="res://aseprite/grapple_chain.png" id="2_hirps"]
+[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="3_f64nv"]
 
-[node name="Grapple" type="Line2D"]
-points = PackedVector2Array(0, 0, 0, 0)
-width = 1.0
-default_color = Color(0.666667, 0.392157, 0.301961, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycsix"]
+atlas = ExtResource("3_f64nv")
+region = Rect2(164, 117, 8, 6)
+
+[node name="Grapple" type="Node2D"]
 script = ExtResource("1_iy5ks")
+
+[node name="Chain" type="Line2D" parent="."]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 16)
+width = 2.0
+texture = ExtResource("2_hirps")
+texture_mode = 1
+
+[node name="Hook" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_ycsix")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 0)
