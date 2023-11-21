@@ -5,7 +5,7 @@ enum State {IDLE, EXTENDING, HOOKED, RETRACTING}
 
 @export var input_enabled := true
 @export var speed := 50.0
-@export var grapple_length := 10.0
+@export var grapple_length := 5.0
 
 var _pointQueryParams := PhysicsPointQueryParameters2D.new()
 var _state := State.IDLE :
@@ -89,7 +89,7 @@ func _extend_process(delta: float) -> void:
 	# Update chain.
 	chain.set_point_position(0, to_local(hook.global_position))
 
-func _hooked_process(delta: float) -> void:
+func _hooked_process(_delta: float) -> void:
 	# Rotate hook accordingly.
 	hook.look_at(global_position)
 	hook.rotation_degrees += 180

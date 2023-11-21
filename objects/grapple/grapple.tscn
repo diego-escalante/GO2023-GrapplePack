@@ -17,7 +17,7 @@ script = ExtResource("1_iy5ks")
 [node name="Chain" type="Line2D" parent="."]
 texture_repeat = 2
 points = PackedVector2Array(0, 0, 0, 0)
-width = 2.0
+width = 4.0
 texture = ExtResource("2_hirps")
 texture_mode = 1
 

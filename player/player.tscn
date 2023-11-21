@@ -1,11 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=23 format=3 uid="uid://blwf38bh4id4k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
 [ext_resource type="Texture2D" uid="uid://d38ua220e4tcs" path="res://aseprite/player.png" id="2_q8lgk"]
-[ext_resource type="Script" path="res://player/state_machine/state_machine.gd" id="3_1rcoo"]
-[ext_resource type="Script" path="res://player/state_machine/player_states/platforming.gd" id="4_r0yds"]
-[ext_resource type="Script" path="res://player/state_machine/player_states/grappled.gd" id="5_s3ai3"]
-[ext_resource type="Script" path="res://player/state_machine/player_states/grappling.gd" id="5_t7ult"]
 [ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://objects/grapple/grapple.tscn" id="6_quhdi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkxlk"]
@@ -188,6 +184,7 @@ z_index = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ufqt5")
+_terminal_velocity = 14.0
 
 [node name="Grapple" parent="." instance=ExtResource("6_quhdi")]
 
@@ -200,32 +197,16 @@ autoplay = "idle"
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_tqqhr")
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_1rcoo")
-_initial_state = NodePath("Platforming")
-
-[node name="Platforming" type="Node" parent="StateMachine"]
-script = ExtResource("4_r0yds")
-_fall_distance = 1.5
-_terminal_velocity = 28.0
-
-[node name="JumpBufferTimer" type="Timer" parent="StateMachine/Platforming"]
+[node name="JumpBufferTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.1
 one_shot = true
 
-[node name="CoyoteTimer" type="Timer" parent="StateMachine/Platforming"]
+[node name="CoyoteTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
-[node name="DropTimer" type="Timer" parent="StateMachine/Platforming"]
+[node name="DropTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.1
 one_shot = true
-
-[node name="Grappled" type="Node" parent="StateMachine"]
-script = ExtResource("5_s3ai3")
-_grapple_speed = 20.0
-
-[node name="Grappling" type="Node" parent="StateMachine"]
-script = ExtResource("5_t7ult")
