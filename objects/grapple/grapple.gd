@@ -135,5 +135,9 @@ func _get_grapple_area(at_position: Vector2) -> GrappleArea:
 	return result.front().get("collider") as GrappleArea
 
 
+func is_hooked() -> bool:
+	return _state == State.HOOKED
+
+
 func get_direction() -> Vector2:
 	return global_position.direction_to(hook.global_position)

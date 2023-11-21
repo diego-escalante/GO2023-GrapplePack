@@ -10,6 +10,7 @@ class_name Player
 @export var _jump_min_height := 0.5
 @export var _fall_distance := 1.2
 @export var _terminal_velocity := 7.0
+@export var _grapple_base_pull_speed := 2.0
 
 @onready var _acceleration := (_run_speed / _time_to_run_speed) if _time_to_run_speed > 0 else -1.0
 @onready var _jump_speed := 2 * _jump_height * _run_speed / _jump_distance
@@ -24,6 +25,7 @@ var _prev_is_on_floor := true
 @onready var _coyote_timer := $CoyoteTimer as Timer
 @onready var _drop_timer := $DropTimer as Timer
 @onready var _sprite := $AnimatedSprite2D as AnimatedSprite2D
+@onready var _grapple := $Grapple as Grapple
 
 func _ready() -> void:
 	# Reset one-way platform collisions each time the _drop_timer finishes.
@@ -54,6 +56,14 @@ func _physics_process(delta: float) -> void:
 		elif input.get("jump_released", false):
 			_current_gravity = _jump_min_gravity
 		velocity.y = min(velocity.y + _current_gravity * delta * GameConsts.PIXELS_PER_UNIT, _terminal_velocity * GameConsts.PIXELS_PER_UNIT)
+		
+	# Grapple Physics.
+	if _grapple.is_hooked():
+		var grapple_velocity = _grapple.get_direction() * _grapple_base_pull_speed * GameConsts.PIXELS_PER_UNIT
+		grapple_velocity.y *= 0.55 if grapple_velocity.y > 0 else 1.65
+		if sign(grapple_velocity.x) != sign(input.get("h_axis")):
+			grapple_velocity.x *= 0.7
+		velocity += grapple_velocity
 	
 	# Drop.
 	if input.get("down_held", false) and input.get("jump_pressed", false):
