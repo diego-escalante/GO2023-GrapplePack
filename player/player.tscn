@@ -184,9 +184,12 @@ animations = [{
 size = Vector2(7, 15)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ufqt5")
+
+[node name="Grapple" parent="." instance=ExtResource("6_quhdi")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bg1fq")
@@ -196,8 +199,6 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_tqqhr")
-
-[node name="Grapple" parent="." instance=ExtResource("6_quhdi")]
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_1rcoo")

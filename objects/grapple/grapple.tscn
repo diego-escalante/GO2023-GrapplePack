@@ -1,27 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0h6gwsg2ewh2"]
+[gd_scene load_steps=6 format=3 uid="uid://d0h6gwsg2ewh2"]
 
 [ext_resource type="Script" path="res://objects/grapple/grapple.gd" id="1_iy5ks"]
 [ext_resource type="Texture2D" uid="uid://ck7n7p5dqrg5e" path="res://aseprite/grapple_chain.png" id="2_hirps"]
 [ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="3_f64nv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycsix"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1sw7"]
 atlas = ExtResource("3_f64nv")
-region = Rect2(164, 117, 8, 6)
+region = Rect2(165, 116, 6, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cdfxe"]
+radius = 1.41421
 
 [node name="Grapple" type="Node2D"]
 script = ExtResource("1_iy5ks")
 
 [node name="Chain" type="Line2D" parent="."]
 texture_repeat = 2
-points = PackedVector2Array(0, 0, 0, 16)
+points = PackedVector2Array(0, 0, 0, 0)
 width = 2.0
 texture = ExtResource("2_hirps")
 texture_mode = 1
 
-[node name="Hook" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_ycsix")
+[node name="Hook" type="CharacterBody2D" parent="."]
+collision_layer = 0
+motion_mode = 1
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Hook"]
+texture = SubResource("AtlasTexture_m1sw7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hook"]
+shape = SubResource("CircleShape2D_cdfxe")
+
+[node name="RayCast2D" type="RayCast2D" parent="Hook"]
 target_position = Vector2(0, 0)
 collision_mask = 5
 collide_with_areas = true
