@@ -4,6 +4,9 @@
 [ext_resource type="Script" path="res://objects/switch/switch.gd" id="2_bhlsm"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_ji1l4"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_byl8o"]
+radius = 8.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtde7"]
 atlas = ExtResource("1_d7yvo")
 region = Rect2(128, 64, 16, 16)
@@ -31,7 +34,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"to_off",
-"speed": 10.0
+"speed": 50.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -42,17 +45,10 @@ animations = [{
 }],
 "loop": false,
 "name": &"to_on",
-"speed": 10.0
+"speed": 50.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_byl8o"]
-radius = 8.0
-
-[node name="Switch" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_ramc6")
-animation = &"to_off"
-autoplay = "to_off"
-frame = 1
+[node name="Switch" type="Node2D"]
 script = ExtResource("2_bhlsm")
 
 [node name="GrappleArea" parent="." instance=ExtResource("3_ji1l4")]
@@ -60,3 +56,7 @@ is_hookable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleArea"]
 shape = SubResource("CircleShape2D_byl8o")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ramc6")
+animation = &"to_off"
