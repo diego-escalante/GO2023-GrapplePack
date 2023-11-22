@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d27vglfupvt2e"]
+[gd_scene load_steps=9 format=3 uid="uid://d27vglfupvt2e"]
 
 [ext_resource type="Script" path="res://objects/powerables/switch/switch.gd" id="1_edcfq"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="2_6wis7"]
@@ -7,11 +7,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_byl8o"]
 radius = 8.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wtde7"]
-atlas = ExtResource("3_xf1vo")
-region = Rect2(128, 64, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8x64j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg2se"]
 atlas = ExtResource("3_xf1vo")
 region = Rect2(112, 64, 16, 16)
 
@@ -27,16 +23,8 @@ region = Rect2(144, 64, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wtde7")
+"texture": SubResource("AtlasTexture_bg2se")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8x64j")
-}],
-"loop": false,
-"name": &"to_off",
-"speed": 50.0
-}, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dlj7s")
 }, {
@@ -44,7 +32,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6jkgq")
 }],
 "loop": false,
-"name": &"to_on",
+"name": &"default",
 "speed": 50.0
 }]
 
@@ -60,4 +48,3 @@ shape = SubResource("CircleShape2D_byl8o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ramc6")
-animation = &"to_off"

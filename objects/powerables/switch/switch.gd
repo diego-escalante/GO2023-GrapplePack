@@ -5,8 +5,7 @@ class_name Switch
 
 func _ready() -> void:
 	super()
-	_sprite.animation = "to_on" if _is_powered else "to_off"
-	_sprite.frame = 1
+	_sprite.frame = 2 if _is_powered else 0
 	($GrappleArea as Area2D).body_entered.connect(_on_grappled)
 
 
@@ -22,4 +21,4 @@ func _on_grappled(_body: Node2D) -> void:
 	
 
 func _change() -> void:
-	_sprite.play("to_on" if _is_powered else "to_off")
+	_sprite.play("default", 1 if _is_powered else -1)
