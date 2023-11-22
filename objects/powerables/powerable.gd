@@ -1,7 +1,7 @@
 extends Node
 class_name Powerable
 
-signal changed(is_powered: bool)
+signal changed(is_powered: bool, origin: Powerable)
 
 @export var _is_powered := false
 @export var _upstream: Powerable
@@ -15,12 +15,15 @@ func _ready() -> void:
 	if _upstream != null:
 		_upstream.changed.connect(_on_changed)
 
-func _on_changed(is_powered: bool) -> void:
+func _on_changed(is_powered: bool, origin: Powerable) -> void:
+	if origin == self:
+		# Break out of cyclical chains
+		return
 	_is_powered = !is_powered if _negate_upstream else is_powered
 	if _signal_delay > 0:
-		get_tree().create_timer(_signal_delay).timeout.connect(func(): changed.emit(_is_powered))
+		get_tree().create_timer(_signal_delay).timeout.connect(func(): changed.emit(_is_powered, origin))
 	else:
-		changed.emit(_is_powered)
+		changed.emit(_is_powered, origin)
 	_change()
 	
 

@@ -31,5 +31,13 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("5_ygp26")
 
-[node name="Switch" parent="." instance=ExtResource("4_6rjuc")]
+[node name="Switch" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("4_6rjuc")]
 position = Vector2(-72, -280)
+_is_powered = true
+_upstream = NodePath("../Switch2")
+_negate_upstream = true
+
+[node name="Switch2" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("4_6rjuc")]
+position = Vector2(-24, -280)
+_upstream = NodePath("../Switch")
+_negate_upstream = true
