@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://d14nqbqk1syth"]
+
+[ext_resource type="Script" path="res://objects/powerables/retractable_wall/retractable_wall.gd" id="1_5xg1p"]
+[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="2_gme2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cm0v3"]
+atlas = ExtResource("2_gme2g")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n0ah"]
+atlas = ExtResource("2_gme2g")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pv434"]
+atlas = ExtResource("2_gme2g")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u3pt6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cm0v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n0ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pv434")
+}],
+"loop": false,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsfp2"]
+size = Vector2(16, 16)
+
+[node name="RetractableWall" type="Node2D"]
+script = ExtResource("1_5xg1p")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_u3pt6")
+frame = 2
+frame_progress = 1.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_jsfp2")
