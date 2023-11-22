@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=24 format=3 uid="uid://blwf38bh4id4k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
 [ext_resource type="Texture2D" uid="uid://d38ua220e4tcs" path="res://aseprite/player.png" id="2_q8lgk"]
@@ -176,6 +176,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kl2e"]
+size = Vector2(7, 15)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tqqhr"]
 size = Vector2(7, 15)
 
@@ -195,8 +198,17 @@ _grapple_time_to_pull_speed = 0.333
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bg1fq")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(-0.5, 1.5)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_1kl2e")
+debug_color = Color(0.984314, 0, 0, 0.419608)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)

@@ -29,10 +29,12 @@ var _grapple_current_speed := 0.0
 @onready var _drop_timer := $DropTimer as Timer
 @onready var _sprite := $AnimatedSprite2D as AnimatedSprite2D
 @onready var _grapple := $Grapple as Grapple
+@onready var _hitbox := $Hitbox as Area2D
 
 func _ready() -> void:
 	# Reset one-way platform collisions each time the _drop_timer finishes.
 	_drop_timer.timeout.connect(func(): set_collision_mask_value(4, true))
+	_hitbox.body_entered.connect(_on_hit)
 
 
 func _physics_process(delta: float) -> void:
@@ -161,4 +163,7 @@ func _calculate_run_velocity(velocity_x: float, h_axis: float, delta: float) -> 
 				velocity_x, 
 				target_x, 
 				_acceleration * delta * GameConsts.PIXELS_PER_UNIT
-		)		
+		)
+
+func _on_hit(_body: Node2D) -> void:
+	GameManager.respawn()

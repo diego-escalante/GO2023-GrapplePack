@@ -20,3 +20,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 				else:
 					DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)	
+
+
+func respawn() -> void:
+	get_tree().reload_current_scene()
