@@ -36,7 +36,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print(_grapple_acceleration * delta)
 	# Grappled Physics
 	if _grapple.is_hooked():
 		_grapple_current_speed = min(_grapple_current_speed + _grapple_acceleration * delta, _grapple_pull_speed)
