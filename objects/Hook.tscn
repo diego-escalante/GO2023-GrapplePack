@@ -8,12 +8,13 @@ atlas = ExtResource("1_acfgl")
 region = Rect2(176, 96, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhvr7"]
-radius = 16.0
+radius = 12.0
 
 [node name="Hook" type="Sprite2D"]
 texture = SubResource("AtlasTexture_v7sgt")
 
 [node name="GrappleArea" parent="." instance=ExtResource("3_86kv0")]
+position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleArea"]
 shape = SubResource("CircleShape2D_rhvr7")
