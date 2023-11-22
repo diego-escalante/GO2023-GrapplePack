@@ -9,7 +9,7 @@ class_name Player
 @export var _jump_distance := 1.5
 @export var _jump_min_height := 0.5
 @export var _fall_distance := 1.2
-@export var _terminal_velocity := 7.0
+@export var _terminal_velocity := 14.0
 @export var _grapple_base_pull_speed := 2.0
 
 @onready var _acceleration := (_run_speed / _time_to_run_speed) if _time_to_run_speed > 0 else -1.0
@@ -60,9 +60,8 @@ func _physics_process(delta: float) -> void:
 	# Grapple Physics.
 	if _grapple.is_hooked():
 		var grapple_velocity = _grapple.get_direction() * _grapple_base_pull_speed * GameConsts.PIXELS_PER_UNIT
-		grapple_velocity.y *= 0.55 if grapple_velocity.y > 0 else 1.65
-		if sign(grapple_velocity.x) != sign(input.get("h_axis")):
-			grapple_velocity.x *= 0.7
+		grapple_velocity.y *= 0.6 if grapple_velocity.y > 0 else 1.1
+		grapple_velocity.x *= 0.8 if sign(grapple_velocity.x) != sign(input.get("h_axis")) else 1.2
 		velocity += grapple_velocity
 	
 	# Drop.

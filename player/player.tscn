@@ -184,7 +184,8 @@ z_index = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ufqt5")
-_terminal_velocity = 14.0
+_jump_distance = 2.0
+_fall_distance = 2.0
 
 [node name="Grapple" parent="." instance=ExtResource("6_quhdi")]
 
