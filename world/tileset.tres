@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cgl371nhk6ocg"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://cgl371nhk6ocg"]
 
 [ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="1_lub31"]
 [ext_resource type="PackedScene" uid="uid://bkx7ujsu6jxpr" path="res://objects/Hook.tscn" id="2_yg2mf"]
+[ext_resource type="PackedScene" uid="uid://c2ox7i5kmsr1h" path="res://objects/Hook2.tscn" id="3_cmgd0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6spcy"]
 texture = ExtResource("1_lub31")
@@ -960,6 +961,7 @@ texture = ExtResource("1_lub31")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4okih"]
 resource_name = "objects"
 scenes/1/scene = ExtResource("2_yg2mf")
+scenes/2/scene = ExtResource("3_cmgd0")
 
 [resource]
 physics_layer_0/collision_layer = 1
