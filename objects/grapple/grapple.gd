@@ -139,5 +139,13 @@ func is_hooked() -> bool:
 	return _state == State.HOOKED
 
 
+func unhook() -> void:
+	_state = State.RETRACTING
+	
+
+func get_current_chain_length() -> float:
+	return global_position.distance_to(hook.global_position)
+
+
 func get_direction() -> Vector2:
 	return global_position.direction_to(hook.global_position)

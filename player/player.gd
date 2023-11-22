@@ -10,7 +10,8 @@ class_name Player
 @export var _jump_min_height := 0.5
 @export var _fall_distance := 1.2
 @export var _terminal_velocity := 14.0
-@export var _grapple_base_pull_speed := 2.0
+@export var _grapple_pull_speed := 10.0
+@export var _grapple_time_to_pull_speed := 0.3
 
 @onready var _acceleration := (_run_speed / _time_to_run_speed) if _time_to_run_speed > 0 else -1.0
 @onready var _jump_speed := 2 * _jump_height * _run_speed / _jump_distance
@@ -18,8 +19,10 @@ class_name Player
 @onready var _jump_min_gravity := pow(_jump_speed, 2) / (2 * _jump_min_height)
 @onready var _fall_gravity := 2 * _jump_height * pow(_run_speed, 2) / pow(_fall_distance, 2)
 @onready var _current_gravity := _jump_gravity
+@onready var _grapple_acceleration := (_grapple_pull_speed / _grapple_time_to_pull_speed) if _grapple_pull_speed > 0 else -1.0
 
 var _prev_is_on_floor := true
+var _grapple_current_speed := 0.0
 
 @onready var _jump_buffer_timer := $JumpBufferTimer as Timer
 @onready var _coyote_timer := $CoyoteTimer as Timer
@@ -33,6 +36,21 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print(_grapple_acceleration * delta)
+	# Grappled Physics
+	if _grapple.is_hooked():
+		_grapple_current_speed = min(_grapple_current_speed + _grapple_acceleration * delta, _grapple_pull_speed)
+		velocity = _grapple.get_direction() * _grapple_current_speed * GameConsts.PIXELS_PER_UNIT
+		if velocity.length() * delta > _grapple.get_current_chain_length():
+			_grapple.unhook()
+			_grapple_current_speed = 0
+			_current_gravity = _jump_gravity
+		move_and_slide()
+		return
+		
+	# Normal Physics
+	_grapple_current_speed = 0
+	
 	# Read input from the player.
 	var input := _read_input() if input_enabled else {}
 		
@@ -56,13 +74,6 @@ func _physics_process(delta: float) -> void:
 		elif input.get("jump_released", false):
 			_current_gravity = _jump_min_gravity
 		velocity.y = min(velocity.y + _current_gravity * delta * GameConsts.PIXELS_PER_UNIT, _terminal_velocity * GameConsts.PIXELS_PER_UNIT)
-		
-	# Grapple Physics.
-	if _grapple.is_hooked():
-		var grapple_velocity = _grapple.get_direction() * _grapple_base_pull_speed * GameConsts.PIXELS_PER_UNIT
-		grapple_velocity.y *= 0.6 if grapple_velocity.y > 0 else 1.1
-		grapple_velocity.x *= 0.8 if sign(grapple_velocity.x) != sign(input.get("h_axis")) else 1.2
-		velocity += grapple_velocity
 	
 	# Drop.
 	if input.get("down_held", false) and input.get("jump_pressed", false):
