@@ -1,26 +1,26 @@
 [gd_scene load_steps=10 format=3 uid="uid://d27vglfupvt2e"]
 
-[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="1_d7yvo"]
-[ext_resource type="Script" path="res://objects/switch/switch.gd" id="2_bhlsm"]
-[ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_ji1l4"]
+[ext_resource type="Script" path="res://objects/powerables/switch/switch.gd" id="1_edcfq"]
+[ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="2_6wis7"]
+[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="3_xf1vo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byl8o"]
 radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wtde7"]
-atlas = ExtResource("1_d7yvo")
+atlas = ExtResource("3_xf1vo")
 region = Rect2(128, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8x64j"]
-atlas = ExtResource("1_d7yvo")
+atlas = ExtResource("3_xf1vo")
 region = Rect2(112, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dlj7s"]
-atlas = ExtResource("1_d7yvo")
+atlas = ExtResource("3_xf1vo")
 region = Rect2(128, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jkgq"]
-atlas = ExtResource("1_d7yvo")
+atlas = ExtResource("3_xf1vo")
 region = Rect2(144, 64, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ramc6"]
@@ -49,10 +49,10 @@ animations = [{
 }]
 
 [node name="Switch" type="Node2D"]
-script = ExtResource("2_bhlsm")
+script = ExtResource("1_edcfq")
 _signal_delay = 0.0
 
-[node name="GrappleArea" parent="." instance=ExtResource("3_ji1l4")]
+[node name="GrappleArea" parent="." instance=ExtResource("2_6wis7")]
 is_hookable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrappleArea"]
