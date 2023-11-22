@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=6 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="TileSet" uid="uid://cgl371nhk6ocg" path="res://world/tileset.tres" id="1_1mopq"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="2_6deeh"]
 [ext_resource type="PackedScene" uid="uid://d27vglfupvt2e" path="res://objects/powerables/switch/switch.tscn" id="4_6rjuc"]
+[ext_resource type="PackedScene" uid="uid://6aafxglraw58" path="res://objects/powerables/retractable_platform/retractable_platform.tscn" id="5_syq5d"]
 [ext_resource type="Script" path="res://camera/shaking_camera_2d.gd" id="5_ygp26"]
 
 [node name="world" type="TileMap"]
@@ -41,3 +42,15 @@ _negate_upstream = true
 position = Vector2(-24, -280)
 _upstream = NodePath("../Switch")
 _negate_upstream = true
+
+[node name="RetractablePlatform" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("5_syq5d")]
+position = Vector2(53, -279)
+_upstream = NodePath("../Switch")
+
+[node name="RetractablePlatform2" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("5_syq5d")]
+position = Vector2(37, -295)
+_upstream = NodePath("../RetractablePlatform")
+
+[node name="RetractablePlatform3" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("5_syq5d")]
+position = Vector2(21, -311)
+_upstream = NodePath("../RetractablePlatform2")

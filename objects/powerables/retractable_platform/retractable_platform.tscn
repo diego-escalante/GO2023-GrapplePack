@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://6aafxglraw58"]
+
+[ext_resource type="Script" path="res://objects/powerables/retractable_platform/retractable_platform.gd" id="1_pm1jq"]
+[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="2_f4yiw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fotle"]
+atlas = ExtResource("2_f4yiw")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_171ae"]
+atlas = ExtResource("2_f4yiw")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4uae"]
+atlas = ExtResource("2_f4yiw")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qumyr"]
+atlas = ExtResource("2_f4yiw")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2w06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fotle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_171ae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4uae")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qumyr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 25.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io8ce"]
+size = Vector2(16, 16)
+
+[node name="RetractablePlatform" type="Node2D"]
+script = ExtResource("1_pm1jq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k2w06")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_io8ce")
+one_way_collision = true

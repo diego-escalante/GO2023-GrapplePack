@@ -6,7 +6,7 @@ signal changed(is_powered: bool, origin: Powerable)
 @export var _is_powered := false
 @export var _upstream: Powerable
 @export var _negate_upstream := false
-@export var _signal_delay := 0.25
+@export var _signal_delay := 0.1
 
 
 func _ready() -> void:
