@@ -70,9 +70,10 @@ func _extend_process(delta: float) -> void:
 	hook_raycast.force_raycast_update()
 	if hook_raycast.is_colliding():
 		if hook_raycast.get_collider() is GrappleArea:
+			var grapple_area := hook_raycast.get_collider() as GrappleArea
 			# Hit a grappleable.
-			hook.global_position = (hook_raycast.get_collider() as GrappleArea).get_grapple_point(hook_raycast.get_collision_point())
-			_state = State.HOOKED
+			hook.global_position = grapple_area.get_grapple_point(hook_raycast.get_collision_point())
+			_state = State.HOOKED if grapple_area.is_hookable else State.RETRACTING
 		
 		else:
 			# Hit a wall.

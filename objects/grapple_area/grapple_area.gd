@@ -1,6 +1,8 @@
 extends Area2D
 class_name GrappleArea
 
+@export var is_hookable := true
+
 var collision_shape: CollisionShape2D
 
 func _ready() -> void:

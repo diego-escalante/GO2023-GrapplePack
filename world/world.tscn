@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=5 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="TileSet" uid="uid://cgl371nhk6ocg" path="res://world/tileset.tres" id="1_1mopq"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="2_6deeh"]
+[ext_resource type="PackedScene" uid="uid://d27vglfupvt2e" path="res://objects/switch/switch.tscn" id="4_6rjuc"]
 [ext_resource type="Script" path="res://camera/shaking_camera_2d.gd" id="5_ygp26"]
 
 [node name="world" type="TileMap"]
@@ -29,3 +30,6 @@ position_smoothing_speed = 16.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource("5_ygp26")
+
+[node name="Switch" parent="." instance=ExtResource("4_6rjuc")]
+position = Vector2(-72, -280)

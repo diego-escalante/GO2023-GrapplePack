@@ -69,6 +69,7 @@ grapple={
 2d_physics/layer_3="grappleables"
 2d_physics/layer_4="oneway"
 2d_physics/layer_5="hazards"
+2d_physics/layer_6="grapple"
 
 [rendering]
 

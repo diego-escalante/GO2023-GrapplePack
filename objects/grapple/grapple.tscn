@@ -22,7 +22,7 @@ texture = ExtResource("2_hirps")
 texture_mode = 1
 
 [node name="Hook" type="CharacterBody2D" parent="."]
-collision_layer = 0
+collision_layer = 32
 motion_mode = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Hook"]
