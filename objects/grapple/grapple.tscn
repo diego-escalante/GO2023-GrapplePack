@@ -12,6 +12,7 @@ region = Rect2(165, 116, 6, 8)
 radius = 1.41421
 
 [node name="Grapple" type="Node2D"]
+visible = false
 script = ExtResource("1_iy5ks")
 
 [node name="Chain" type="Line2D" parent="."]

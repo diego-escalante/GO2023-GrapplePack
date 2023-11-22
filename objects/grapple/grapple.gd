@@ -11,6 +11,7 @@ var _pointQueryParams := PhysicsPointQueryParameters2D.new()
 var _state := State.IDLE :
 	set(val):
 		visible = val != State.IDLE
+#		hook.set_collision_layer_value(6, false if val == State.RETRACTING else true)
 		_state = val
 var _target := Vector2.ZERO
 var _is_target_grappable := false
