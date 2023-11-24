@@ -46,6 +46,7 @@ func _physics_process(delta: float) -> void:
 			_grapple.unhook()
 			_grapple_current_speed = 0
 			_current_gravity = _jump_gravity
+		_sprite.animation = "jump" if velocity.y < 0 else "fall"
 		move_and_slide()
 		return
 		
