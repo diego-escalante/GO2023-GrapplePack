@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dbgwfkpnpnrce"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_hook/retractable_hook.gd" id="1_o3ycw"]
-[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="2_fjjq2"]
+[ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_fjjq2"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_k713h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q86rj"]

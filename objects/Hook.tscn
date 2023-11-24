@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkx7ujsu6jxpr"]
 
-[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="1_acfgl"]
+[ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="1_acfgl"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_86kv0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7sgt"]

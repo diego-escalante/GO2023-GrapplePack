@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cka1fbem226v1"]
+
+[ext_resource type="FontFile" uid="uid://b7ajoqvrx56fk" path="res://fonts/KiwiSoda.ttf" id="1_017bs"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.666667, 0.392157, 0.301961, 1)
+theme_override_colors/font_shadow_color = Color(0.960784, 0.913725, 0.74902, 1)
+theme_override_colors/font_outline_color = Color(0.960784, 0.913725, 0.74902, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/line_spacing = -14
+theme_override_fonts/font = ExtResource("1_017bs")
+theme_override_font_sizes/font_size = 45
+text = "Grapple
+ Pack"
+horizontal_alignment = 1
+vertical_alignment = 1
