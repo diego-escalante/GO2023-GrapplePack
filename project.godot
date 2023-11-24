@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 GameConsts="*res://common/game_consts.gd"
 GameManager="*res://common/game_manager.gd"
 Hitstop="*res://common/hitstop.gd"
+ScreenFade="*res://UI/screen_fade/screen_fade.tscn"
 
 [display]
 

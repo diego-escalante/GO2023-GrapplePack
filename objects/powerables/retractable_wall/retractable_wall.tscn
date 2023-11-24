@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://d14nqbqk1syth"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_wall/retractable_wall.gd" id="1_5xg1p"]
-[ext_resource type="Texture2D" uid="uid://bvevp17ts57m5" path="res://aseprite/tilemap.png" id="2_gme2g"]
+[ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_gme2g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cm0v3"]
 atlas = ExtResource("2_gme2g")
