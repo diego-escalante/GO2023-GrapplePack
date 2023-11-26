@@ -1,0 +1,52 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cc4pdilt8xckp"]
+
+[ext_resource type="FontFile" uid="uid://c3gxu0l8kyc56" path="res://fonts/PearSoda.ttf" id="1_ngoti"]
+[ext_resource type="Texture2D" uid="uid://dqs7psa2h4e01" path="res://aseprite/9_slice.png" id="2_qn3di"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_txw4l"]
+texture = ExtResource("2_qn3di")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 16, 16)
+modulate_color = Color(0.666667, 0.392157, 0.301961, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dg3fm"]
+texture = ExtResource("2_qn3di")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 16, 16)
+modulate_color = Color(0.470588, 0.513726, 0.454902, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyvp0"]
+texture = ExtResource("2_qn3di")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 16, 16)
+modulate_color = Color(0.960784, 0.913725, 0.74902, 1)
+
+[resource]
+Button/colors/font_color = Color(0.470588, 0.513726, 0.454902, 1)
+Button/colors/font_hover_color = Color(0.666667, 0.392157, 0.301961, 1)
+Button/colors/font_pressed_color = Color(0.960784, 0.913725, 0.74902, 1)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_ngoti")
+Button/styles/hover = SubResource("StyleBoxTexture_txw4l")
+Button/styles/normal = SubResource("StyleBoxTexture_dg3fm")
+Button/styles/pressed = SubResource("StyleBoxTexture_oyvp0")
+Label/colors/font_color = Color(0.470588, 0.513726, 0.454902, 1)
+Label/colors/font_outline_color = Color(0.215686, 0.164706, 0.223529, 1)
+Label/constants/outline_size = 4
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_ngoti")

@@ -8,10 +8,8 @@ var _circle_size := MAX_CIRCLE_SIZE
 var _player: Node2D
 var _tween: Tween
 
+@onready var _color_rect := $ColorRect as ColorRect
 @export var _shader: ShaderMaterial
-
-func _ready():
-	_player = get_tree().get_first_node_in_group("player")
 
 func _process(_delta: float) -> void:
 	_set_center()
@@ -32,11 +30,24 @@ func _set_circle_size() -> void:
 	_shader.set_shader_parameter("circle_size", _circle_size)
 	
 
-func set_circle(circle_pixels: float, duration := 0.0) -> void:
-	if _tween != null and not _tween.is_valid():
+func set_circle(value: float, duration := 0.0, color := Color(0.216, 0.165, 0.224)) -> void:
+	if _tween != null and _tween.is_valid():
 		_tween.kill()
+
+	if _player == null or not is_instance_valid(_player):
+		_player = get_tree().get_first_node_in_group("player")
+
+	var circle_size := remap(value, 0, 1, 0, MAX_CIRCLE_SIZE)
+	if duration <= 0:
+		_circle_size = circle_size
+		_color_rect.color = color
+		_set_circle_size()
+		done.emit()
+		return
+
 	_tween = create_tween()
 	_tween.set_ease(Tween.EASE_IN_OUT)
 	_tween.set_trans(Tween.TRANS_EXPO)
-	_tween.tween_property(self, "_circle_size", circle_pixels, duration)
-	_tween.tween_callback(func(): done.emit())
+	_tween.tween_property(self, "_circle_size", circle_size, duration)
+	_tween.tween_property(_color_rect, "color", color, duration)
+	_tween.tween_callback(func():  done.emit())

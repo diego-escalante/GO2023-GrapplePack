@@ -1,7 +1,10 @@
 extends CharacterBody2D
 class_name Player
 
-@export var input_enabled := true
+signal just_grounded
+
+@export var _input_enabled := true
+@export var freeze_position := false
 
 @export var _run_speed := 7.0
 @export var _time_to_run_speed := 0.1
@@ -35,9 +38,13 @@ func _ready() -> void:
 	# Reset one-way platform collisions each time the _drop_timer finishes.
 	_drop_timer.timeout.connect(func(): set_collision_mask_value(4, true))
 	_hitbox.body_entered.connect(_on_hit)
+	_grapple.input_enabled = _input_enabled
 
 
 func _physics_process(delta: float) -> void:
+	if freeze_position:
+		return
+	
 	# Grappled Physics
 	if _grapple.is_hooked():
 		_grapple_current_speed = min(_grapple_current_speed + _grapple_acceleration * delta, _grapple_pull_speed)
@@ -54,7 +61,7 @@ func _physics_process(delta: float) -> void:
 	_grapple_current_speed = 0
 	
 	# Read input from the player.
-	var input := _read_input() if input_enabled else {}
+	var input := _read_input() if _input_enabled else {}
 		
 	# Register jumps in the jump buffer.
 	_update_jump_buffer(input.get("jump_pressed", false))
@@ -89,6 +96,9 @@ func _physics_process(delta: float) -> void:
 	
 	update_animation(input.get("down_held", false))
 	
+	if not _prev_is_on_floor and is_on_floor():
+		just_grounded.emit()
+		
 	_prev_is_on_floor = is_on_floor()
 	
 	move_and_slide()
@@ -167,4 +177,9 @@ func _calculate_run_velocity(velocity_x: float, h_axis: float, delta: float) -> 
 		)
 
 func _on_hit(_body: Node2D) -> void:
-	GameManager.respawn()
+	owner.respawn()
+
+
+func set_input_enabled(value: bool) -> void:
+	_input_enabled = value
+	_grapple.input_enabled = value

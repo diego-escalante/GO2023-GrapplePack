@@ -11,16 +11,15 @@ config_version=5
 [application]
 
 config/name="GO2023"
-run/main_scene="res://world/world.tscn"
+run/main_scene="res://scenes/fullscreen_prompt/fullscreen_prompt.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.png"
 
 [autoload]
 
-GameConsts="*res://common/game_consts.gd"
-GameManager="*res://common/game_manager.gd"
+ScreenFade="*res://ui/screen_fade/screen_fade.tscn"
 Hitstop="*res://common/hitstop.gd"
-ScreenFade="*res://UI/screen_fade/screen_fade.tscn"
+GameConsts="*res://common/game_consts.gd"
 
 [display]
 
@@ -30,6 +29,10 @@ window/size/resizable=false
 window/size/window_width_override=720
 window/size/window_height_override=1280
 window/stretch/mode="canvas_items"
+
+[gui]
+
+theme/custom="res://theme/default_theme.tres"
 
 [input]
 
