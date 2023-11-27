@@ -22,9 +22,9 @@ func _on_body_entered(_body: Node2D) -> void:
 	var title = _packed_title.instantiate()
 	owner.add_child(title)
 	
-	(get_tree().get_first_node_in_group("player") as Player).set_input_enabled(true, true)
 	_animation_player.play("despawn")
 	await _animation_player.animation_finished
+	(get_tree().get_first_node_in_group("player") as Player).set_input_enabled(true, true)
 
 	ScreenFade.set_circle(1, 0.75)
 	TimeController.scale_time(1, 0.75)
