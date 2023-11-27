@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v7sgt"]
 atlas = ExtResource("1_acfgl")
-region = Rect2(176, 96, 16, 16)
+region = Rect2(187, 102, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhvr7"]
 radius = 12.0

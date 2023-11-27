@@ -3,36 +3,36 @@
 [ext_resource type="Script" path="res://objects/powerables/retractable_platform/retractable_platform.gd" id="1_pm1jq"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_f4yiw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fotle"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6hty"]
 atlas = ExtResource("2_f4yiw")
-region = Rect2(48, 112, 16, 16)
+region = Rect2(51, 119, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_171ae"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1lpx"]
 atlas = ExtResource("2_f4yiw")
-region = Rect2(32, 112, 16, 16)
+region = Rect2(34, 119, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4uae"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgoag"]
 atlas = ExtResource("2_f4yiw")
-region = Rect2(16, 112, 16, 16)
+region = Rect2(17, 119, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qumyr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_67bt8"]
 atlas = ExtResource("2_f4yiw")
-region = Rect2(0, 112, 16, 16)
+region = Rect2(0, 119, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k2w06"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fotle")
+"texture": SubResource("AtlasTexture_m6hty")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_171ae")
+"texture": SubResource("AtlasTexture_s1lpx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d4uae")
+"texture": SubResource("AtlasTexture_sgoag")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qumyr")
+"texture": SubResource("AtlasTexture_67bt8")
 }],
 "loop": false,
 "name": &"default",

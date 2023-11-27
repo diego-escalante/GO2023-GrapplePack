@@ -3,29 +3,29 @@
 [ext_resource type="Script" path="res://objects/powerables/retractable_wall/retractable_wall.gd" id="1_5xg1p"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_gme2g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cm0v3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pf0j"]
 atlas = ExtResource("2_gme2g")
-region = Rect2(16, 128, 16, 16)
+region = Rect2(17, 136, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7n0ah"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_th7y4"]
 atlas = ExtResource("2_gme2g")
-region = Rect2(32, 128, 16, 16)
+region = Rect2(34, 136, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pv434"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8w1l"]
 atlas = ExtResource("2_gme2g")
-region = Rect2(0, 48, 16, 16)
+region = Rect2(0, 51, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u3pt6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cm0v3")
+"texture": SubResource("AtlasTexture_8pf0j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7n0ah")
+"texture": SubResource("AtlasTexture_th7y4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pv434")
+"texture": SubResource("AtlasTexture_w8w1l")
 }],
 "loop": false,
 "name": &"default",

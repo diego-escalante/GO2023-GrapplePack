@@ -4,29 +4,29 @@
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_fjjq2"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_k713h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q86rj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_axi0o"]
 atlas = ExtResource("2_fjjq2")
-region = Rect2(112, 112, 16, 16)
+region = Rect2(119, 119, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ye4a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yabr6"]
 atlas = ExtResource("2_fjjq2")
-region = Rect2(128, 112, 16, 16)
+region = Rect2(136, 119, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6j7ne"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m42dx"]
 atlas = ExtResource("2_fjjq2")
-region = Rect2(144, 112, 16, 16)
+region = Rect2(153, 119, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4te07"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_q86rj")
+"texture": SubResource("AtlasTexture_axi0o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6ye4a")
+"texture": SubResource("AtlasTexture_yabr6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6j7ne")
+"texture": SubResource("AtlasTexture_m42dx")
 }],
 "loop": false,
 "name": &"default",
