@@ -5,10 +5,10 @@ class_name GameController
 @onready var _camera := $Camera as ShakingCamera2D
 
 func _ready() -> void:
+	_player.just_grounded.connect(_on_intro_player_just_grounded)
 	ScreenFade.set_circle(0, 0, Color.BLACK)
 	await get_tree().create_timer(0.5).timeout
 	ScreenFade.set_circle(1, 2, Color.BLACK)
-	_player.just_grounded.connect(_on_intro_player_just_grounded)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -40,7 +40,7 @@ func _on_intro_player_just_grounded() -> void:
 	_camera.add_trauma(0.85)
 	await get_tree().create_timer(1).timeout
 	_player.freeze_position = false
-	_player.set_input_enabled(true)
+	_player.set_input_enabled(true, false)
 
 
 func respawn() -> void:

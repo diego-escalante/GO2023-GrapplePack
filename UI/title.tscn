@@ -1,9 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cka1fbem226v1"]
+[gd_scene load_steps=3 format=3 uid="uid://cka1fbem226v1"]
 
 [ext_resource type="FontFile" uid="uid://b7ajoqvrx56fk" path="res://fonts/KiwiSoda.ttf" id="1_017bs"]
+[ext_resource type="Script" path="res://UI/title.gd" id="1_f71ax"]
 
 [node name="Title" type="CanvasLayer"]
-visible = false
+script = ExtResource("1_f71ax")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15

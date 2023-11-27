@@ -4,6 +4,7 @@ class_name Player
 signal just_grounded
 
 @export var _input_enabled := true
+@export var _grapple_enabled := true
 @export var freeze_position := false
 
 @export var _run_speed := 7.0
@@ -38,7 +39,7 @@ func _ready() -> void:
 	# Reset one-way platform collisions each time the _drop_timer finishes.
 	_drop_timer.timeout.connect(func(): set_collision_mask_value(4, true))
 	_hitbox.body_entered.connect(_on_hit)
-	_grapple.input_enabled = _input_enabled
+	set_input_enabled(_input_enabled, _grapple_enabled)
 
 
 func _physics_process(delta: float) -> void:
@@ -180,6 +181,14 @@ func _on_hit(_body: Node2D) -> void:
 	owner.respawn()
 
 
-func set_input_enabled(value: bool) -> void:
-	_input_enabled = value
-	_grapple.input_enabled = value
+func set_input_enabled(movement: bool, grapple: bool) -> void:
+	_input_enabled = movement
+	_grapple.input_enabled = grapple
+	var old_sprite := _sprite
+	_sprite = $AnimatedSprite2D if grapple else $AnimatedSprite2DNoGrapple 
+	if old_sprite != null:
+		old_sprite.visible = false
+		_sprite.animation = old_sprite.animation
+		_sprite.frame = old_sprite.frame
+		_sprite.flip_h = old_sprite.flip_h
+	_sprite.visible = true

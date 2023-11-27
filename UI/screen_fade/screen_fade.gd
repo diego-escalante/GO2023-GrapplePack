@@ -12,6 +12,8 @@ var _tween: Tween
 @export var _shader: ShaderMaterial
 
 func _process(_delta: float) -> void:
+	if _tween != null and _tween.is_valid():
+		_tween.set_speed_scale(1.0/Engine.time_scale)
 	_set_center()
 	_set_circle_size()
 
@@ -38,9 +40,9 @@ func set_circle(value: float, duration := 0.0, color := Color(0.216, 0.165, 0.22
 		_player = get_tree().get_first_node_in_group("player")
 
 	var circle_size := remap(value, 0, 1, 0, MAX_CIRCLE_SIZE)
+	_color_rect.color = color
 	if duration <= 0:
 		_circle_size = circle_size
-		_color_rect.color = color
 		_set_circle_size()
 		done.emit()
 		return
@@ -49,5 +51,4 @@ func set_circle(value: float, duration := 0.0, color := Color(0.216, 0.165, 0.22
 	_tween.set_ease(Tween.EASE_IN_OUT)
 	_tween.set_trans(Tween.TRANS_EXPO)
 	_tween.tween_property(self, "_circle_size", circle_size, duration)
-	_tween.tween_property(_color_rect, "color", color, duration)
 	_tween.tween_callback(func():  done.emit())
