@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=18 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Script" path="res://common/game_controller.gd" id="1_1r3rh"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="1_rpdod"]
@@ -27,11 +27,14 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbo0h"]
 size = Vector2(16, 48)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgef8"]
+size = Vector2(160, 48)
+
 [node name="GameController" type="Node2D"]
 script = ExtResource("1_1r3rh")
 
 [node name="Player" parent="." instance=ExtResource("1_rpdod")]
-position = Vector2(-192, -1889)
+position = Vector2(-192, -1841)
 _input_enabled = false
 _grapple_enabled = false
 _terminal_velocity = 21.0
@@ -40,8 +43,8 @@ _terminal_velocity = 21.0
 position = Vector2(0, -77)
 remote_path = NodePath("../../Camera")
 
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(-192, -1966)
+[node name="Camera" type="Camera2D" parent="." groups=["camera"]]
+position = Vector2(-192, -1918)
 ignore_rotation = false
 limit_left = -282
 limit_right = -102
@@ -135,3 +138,17 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LocationTrigger5/Area2D"]
 position = Vector2(-8, -24)
 shape = SubResource("RectangleShape2D_gbo0h")
+
+[node name="LocationTrigger6" parent="." instance=ExtResource("11_8oq73")]
+position = Vector2(32, -496)
+_dialogues = Array[Resource("res://dialogue/dialogue.gd")]([ExtResource("15_b0mb7")])
+_high_priority = true
+
+[node name="Area2D" type="Area2D" parent="LocationTrigger6"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LocationTrigger6/Area2D"]
+position = Vector2(-32, -24)
+shape = SubResource("RectangleShape2D_bgef8")

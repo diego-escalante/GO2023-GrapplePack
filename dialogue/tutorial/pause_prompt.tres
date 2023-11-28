@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://kn21jefpliy2"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_7vkmp"]
+
+[resource]
+script = ExtResource("1_7vkmp")
+text = "Press P to pause the game and to access settings."
+duration = 10.0
+source = "none"

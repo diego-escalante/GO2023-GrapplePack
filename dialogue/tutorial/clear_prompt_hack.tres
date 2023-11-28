@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_7844r")
 text = ""
-duration = 0.0
+duration = 2.0
 source = "none"

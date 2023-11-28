@@ -346,12 +346,14 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_bg1fq")
 animation = &"walk"
 autoplay = "idle"
+speed_scale = 1.5
 
 [node name="AnimatedSprite2DNoGrapple" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_l7mf1")
 animation = &"idle"
 autoplay = "idle"
+speed_scale = 1.5
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(-0.5, 1.5)

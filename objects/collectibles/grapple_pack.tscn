@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://c58hpwkgh05i4"]
+[gd_scene load_steps=13 format=3 uid="uid://c58hpwkgh05i4"]
 
 [ext_resource type="Shader" path="res://objects/collectibles/colorize.gdshader" id="1_23xww"]
 [ext_resource type="Texture2D" uid="uid://xi7fraef0135" path="res://aseprite/grapple_pack.png" id="1_r3ii7"]
 [ext_resource type="Script" path="res://objects/collectibles/grapple_pack.gd" id="2_u47mb"]
 [ext_resource type="PackedScene" uid="uid://cka1fbem226v1" path="res://UI/title.tscn" id="3_00dyx"]
+[ext_resource type="Resource" uid="uid://beneasnqv0sh1" path="res://dialogue/tutorial/grapple_prompt.tres" id="5_eyxe7"]
+[ext_resource type="Resource" uid="uid://kn21jefpliy2" path="res://dialogue/tutorial/pause_prompt.tres" id="6_7hbcl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ga2ik"]
 shader = ExtResource("1_23xww")
@@ -100,6 +102,7 @@ texture = ExtResource("1_r3ii7")
 offset = Vector2(0, 1.375)
 script = ExtResource("2_u47mb")
 _packed_title = ExtResource("3_00dyx")
+_dialogues = Array[Resource("res://dialogue/dialogue.gd")]([ExtResource("5_eyxe7"), ExtResource("6_7hbcl")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"

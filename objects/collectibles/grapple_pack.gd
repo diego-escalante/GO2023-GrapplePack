@@ -2,6 +2,7 @@ extends Sprite2D
 class_name GrapplePack
 
 @export var _packed_title: PackedScene
+@export var _dialogues: Array[Dialogue]
 
 @onready var _area := $Area2D as Area2D
 @onready var _animation_player := $AnimationPlayer as AnimationPlayer
@@ -28,5 +29,9 @@ func _on_body_entered(_body: Node2D) -> void:
 
 	ScreenFade.set_circle(1, 0.75)
 	TimeController.scale_time(1, 0.75)
+	
+	await get_tree().create_timer(2.5).timeout
+	
+	(get_tree().get_first_node_in_group("dialogue_controller") as DialogueController).queue_up(_dialogues)
 	
 	queue_free()
