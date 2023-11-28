@@ -14,7 +14,6 @@ shader_parameter/screen_height = 320.0
 process_mode = 3
 layer = 5
 script = ExtResource("1_506ba")
-_shader = SubResource("ShaderMaterial_m3glk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_m3glk")

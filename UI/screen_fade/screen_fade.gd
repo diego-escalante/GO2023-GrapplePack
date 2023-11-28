@@ -9,7 +9,10 @@ var _player: Node2D
 var _tween: Tween
 
 @onready var _color_rect := $ColorRect as ColorRect
-@export var _shader: ShaderMaterial
+var _shader: ShaderMaterial
+
+func _ready() -> void:
+	_shader = _color_rect.material
 
 func _process(_delta: float) -> void:
 	if _tween != null and _tween.is_valid():
