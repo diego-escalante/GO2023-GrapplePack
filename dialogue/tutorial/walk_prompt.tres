@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://1t46r57oo4l"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_55v8x"]
+
+[resource]
+script = ExtResource("1_55v8x")
+text = "Use A and D to move left and right."
+duration = 999.0
+source = "none"

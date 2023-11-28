@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://2pfotkkamtts"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_pka1h"]
+
+[resource]
+script = ExtResource("1_pka1h")
+text = "Climb down some platforms
+with S + Spacebar."
+duration = 999.0
+source = "none"

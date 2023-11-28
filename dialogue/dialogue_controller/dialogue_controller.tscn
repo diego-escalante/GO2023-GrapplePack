@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck33b4327vmbs"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_controller/dialogue_controller.gd" id="1_0s8vo"]
+
+[node name="DialogueController" type="CanvasLayer" groups=["dialogue_controller"]]
+layer = 6
+script = ExtResource("1_0s8vo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = -4
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 2

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://dgkl3ycoxi8gt"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_drxpn"]
+
+[resource]
+script = ExtResource("1_drxpn")
+text = "Use the Spacebar to jump."
+duration = 999.0
+source = "none"

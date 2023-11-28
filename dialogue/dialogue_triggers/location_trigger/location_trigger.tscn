@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vbc37rs2yaul"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_triggers/location_trigger/location_trigger.gd" id="1_rn8fq"]
+
+[node name="LocationTrigger" type="Node2D"]
+script = ExtResource("1_rn8fq")

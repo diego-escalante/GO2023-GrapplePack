@@ -1,11 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://culd683cqoyxd"]
-
-[ext_resource type="Script" path="res://camera/following_camera_2d.gd" id="1_rnxxb"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_exni3"]
+[gd_scene format=3 uid="uid://bg6csme3323mr"]
 
 [node name="Camera" type="Camera2D"]
 ignore_rotation = false
-script = ExtResource("1_rnxxb")
-target_offset = Vector2(0, -64)
-_noise = SubResource("FastNoiseLite_exni3")

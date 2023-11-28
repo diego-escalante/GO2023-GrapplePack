@@ -47,6 +47,6 @@ Button/styles/normal = SubResource("StyleBoxTexture_dg3fm")
 Button/styles/pressed = SubResource("StyleBoxTexture_oyvp0")
 Label/colors/font_color = Color(0.470588, 0.513726, 0.454902, 1)
 Label/colors/font_outline_color = Color(0.215686, 0.164706, 0.223529, 1)
-Label/constants/outline_size = 4
+Label/constants/outline_size = 8
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_ngoti")
