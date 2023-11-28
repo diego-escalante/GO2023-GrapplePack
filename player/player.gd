@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Grappled Physics
 	if _grapple.is_hooked():
+		set_collision_mask_value(4, false)
 		_grapple_current_speed = min(_grapple_current_speed + _grapple_acceleration * delta, _grapple_pull_speed)
 		velocity = _grapple.get_direction() * _grapple_current_speed * GameConsts.PIXELS_PER_UNIT
 		if velocity.length() * delta > _grapple.get_current_chain_length():
@@ -57,6 +58,8 @@ func _physics_process(delta: float) -> void:
 		_sprite.animation = "jump" if velocity.y < 0 else "fall"
 		move_and_slide()
 		return
+	elif _drop_timer.is_stopped():
+		set_collision_mask_value(4, true)
 		
 	# Normal Physics
 	_grapple_current_speed = 0

@@ -334,6 +334,7 @@ collision_mask = 9
 script = ExtResource("1_ufqt5")
 _time_to_run_speed = 0.2
 _jump_distance = 2.0
+_jump_min_height = 1.0
 _fall_distance = 2.0
 _terminal_velocity = 18.0
 _grapple_pull_speed = 20.0

@@ -6,13 +6,17 @@ enum State {IDLE, EXTENDING, HOOKED, RETRACTING}
 @export var input_enabled := true
 @export var speed := 50.0
 @export var grapple_length := 5.0
+@export var _can_grapple := true
 
 var _pointQueryParams := PhysicsPointQueryParameters2D.new()
 var _state := State.IDLE :
 	set(val):
 		visible = val != State.IDLE
-#		hook.set_collision_layer_value(6, false if val == State.RETRACTING else true)
 		_state = val
+		if val == State.IDLE:
+			_can_grapple = false
+			get_tree().create_timer(0.1).timeout.connect(func(): _can_grapple = true)
+			
 var _target := Vector2.ZERO
 var _is_target_grappable := false
 
@@ -29,7 +33,7 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("grapple") and _state == State.IDLE and input_enabled:
+	if event.is_action_pressed("grapple") and _state == State.IDLE and input_enabled and _can_grapple:
 		_set_target()
 		_state = State.EXTENDING
 		hook.global_position = global_position
@@ -115,7 +119,6 @@ func _retract_process(delta: float) -> void:
 	
 	# Update chain.
 	chain.set_point_position(0, to_local(hook.global_position))
-
 
 
 func _set_target() -> void:
