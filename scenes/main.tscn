@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=22 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Script" path="res://common/game_controller.gd" id="1_1r3rh"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="1_rpdod"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vbc37rs2yaul" path="res://dialogue/dialogue_triggers/location_trigger/location_trigger.tscn" id="11_8oq73"]
 [ext_resource type="PackedScene" uid="uid://b4v1g5x00df10" path="res://objects/powerables/moving_platform/moving_platform.tscn" id="12_taar6"]
 [ext_resource type="Resource" uid="uid://1t46r57oo4l" path="res://dialogue/tutorial/walk_prompt.tres" id="12_xaxes"]
+[ext_resource type="PackedScene" uid="uid://dnk1wm180k5bj" path="res://objects/powerables/moving_saw/moving_saw.tscn" id="13_gy5vy"]
 [ext_resource type="Resource" uid="uid://dgkl3ycoxi8gt" path="res://dialogue/tutorial/jump_prompt.tres" id="13_xjf3o"]
 [ext_resource type="Resource" uid="uid://2pfotkkamtts" path="res://dialogue/tutorial/climb_down_prompt.tres" id="14_aosu6"]
 [ext_resource type="Resource" uid="uid://3upi15et32rx" path="res://dialogue/tutorial/clear_prompt_hack.tres" id="15_b0mb7"]
@@ -32,6 +33,16 @@ size = Vector2(16, 48)
 size = Vector2(160, 48)
 
 [sub_resource type="Curve2D" id="Curve2D_e3owh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 12, -8, 0, 0, 0, 0, 36, -24, 0, 0, 0, 0, 36, 8, 0, 0, 0, 0, 12, -8)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_w0sdh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 40, -32, 0, 0, 0, 0, 40, -32, 0, 0, 0, 0, 16, -32, 0, 0, 0, 0, 16, -32, 0, 0, 0, 0, 16, 0)
+}
+point_count = 8
 
 [node name="GameController" type="Node2D"]
 position = Vector2(500, 0)
@@ -158,6 +169,14 @@ position = Vector2(-32, -24)
 shape = SubResource("RectangleShape2D_bgef8")
 
 [node name="MovingPlatform" parent="." instance=ExtResource("12_taar6")]
+position = Vector2(-56, -424)
 
 [node name="Path2D" type="Path2D" parent="MovingPlatform"]
 curve = SubResource("Curve2D_e3owh")
+
+[node name="MovingSaw" parent="." instance=ExtResource("13_gy5vy")]
+position = Vector2(36, -424)
+_is_powered = true
+
+[node name="Path2D" type="Path2D" parent="MovingSaw"]
+curve = SubResource("Curve2D_w0sdh")

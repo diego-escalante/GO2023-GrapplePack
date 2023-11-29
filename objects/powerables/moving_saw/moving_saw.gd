@@ -1,5 +1,5 @@
 extends Powerable
-class_name MovingPlatform
+class_name MovingSaw
 
 @export var speed := 1.0
 @export var _draw_path := true
@@ -14,7 +14,6 @@ func _ready() -> void:
 	_path_follow.reparent(_path)
 	if _draw_path:
 		_draw_line()
-	_path_follow.progress = 0
 
 func _physics_process(delta: float):
 	if _is_powered:

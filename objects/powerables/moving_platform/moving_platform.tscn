@@ -15,9 +15,7 @@ size = Vector2(16, 16)
 [node name="MovingPlatform" type="Node2D"]
 process_priority = -3
 process_physics_priority = -3
-position = Vector2(-56, -424)
 script = ExtResource("1_d2hhy")
-_is_powered = true
 
 [node name="Line2D" type="Line2D" parent="."]
 z_index = -1
@@ -31,19 +29,12 @@ rotates = false
 cubic_interp = false
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
-position = Vector2(56, 424)
 collision_layer = 8
 sync_to_physics = false
 
 [node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
-position = Vector2(-56, -424)
 texture = SubResource("AtlasTexture_q1mu6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D"]
-position = Vector2(-56, -424)
 shape = SubResource("RectangleShape2D_w4qxw")
 one_way_collision = true
-
-[node name="_Timer_156966" type="Timer" parent="PathFollow2D"]
-wait_time = 0.2
-one_shot = true

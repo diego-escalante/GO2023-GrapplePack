@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://dnk1wm180k5bj"]
+
+[ext_resource type="Script" path="res://objects/powerables/moving_saw/moving_saw.gd" id="1_wtmjv"]
+[ext_resource type="Texture2D" uid="uid://c6qhuyapmcqtk" path="res://aseprite/path_line.png" id="2_tle68"]
+[ext_resource type="Texture2D" uid="uid://djtrvfoebogpe" path="res://aseprite/saw.png" id="3_cqcrn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb7yv"]
+atlas = ExtResource("3_cqcrn")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sw4k"]
+atlas = ExtResource("3_cqcrn")
+region = Rect2(19, 0, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wvorh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb7yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4sw4k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8trmn"]
+radius = 8.0
+
+[node name="MovingSaw" type="Node2D"]
+process_priority = -3
+process_physics_priority = -3
+script = ExtResource("1_wtmjv")
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+texture_repeat = 2
+width = 1.0
+texture = ExtResource("2_tle68")
+texture_mode = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+cubic_interp = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PathFollow2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="PathFollow2D/StaticBody2D"]
+sprite_frames = SubResource("SpriteFrames_wvorh")
+autoplay = "default"
+frame_progress = 0.739802
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/StaticBody2D"]
+shape = SubResource("CircleShape2D_8trmn")
