@@ -94,7 +94,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_xcnjk"]
 radius = 8.0
 
-[node name="GrapplePack" type="Sprite2D"]
+[node name="GrapplePack" type="Sprite2D" groups=["grapple_pack"]]
 process_mode = 3
 material = SubResource("ShaderMaterial_ga2ik")
 rotation = 6.28319

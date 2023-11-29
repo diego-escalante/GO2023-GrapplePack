@@ -181,6 +181,7 @@ func _calculate_run_velocity(velocity_x: float, h_axis: float, delta: float) -> 
 		)
 
 func _on_hit(_body: Node2D) -> void:
+	_hitbox.body_entered.disconnect(_on_hit)
 	owner.respawn()
 
 

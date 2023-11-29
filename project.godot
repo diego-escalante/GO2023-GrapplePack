@@ -20,6 +20,8 @@ config/icon="res://icon.png"
 ScreenFade="*res://ui/screen_fade/screen_fade.tscn"
 TimeController="*res://common/time_controller.gd"
 GameConsts="*res://common/game_consts.gd"
+GameState="*res://common/game_state.gd"
+DialogueController="*res://dialogue/dialogue_controller/dialogue_controller.tscn"
 
 [display]
 

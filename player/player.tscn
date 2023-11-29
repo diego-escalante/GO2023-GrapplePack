@@ -1,9 +1,16 @@
-[gd_scene load_steps=40 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=42 format=3 uid="uid://blwf38bh4id4k"]
 
+[ext_resource type="Shader" path="res://player/dissolve.gdshader" id="1_i2cui"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
 [ext_resource type="Texture2D" uid="uid://d38ua220e4tcs" path="res://aseprite/player.png" id="2_q8lgk"]
 [ext_resource type="Texture2D" uid="uid://c7cteu2w65n5l" path="res://aseprite/player_no_grapple.png" id="4_mt424"]
 [ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://player/grapple/grapple.tscn" id="6_quhdi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pj5wf"]
+shader = ExtResource("1_i2cui")
+shader_parameter/color = Color(0.960784, 0.913725, 0.74902, 1)
+shader_parameter/percentage = 0.0
+shader_parameter/sensitivity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qkxlk"]
 atlas = ExtResource("2_q8lgk")
@@ -343,7 +350,7 @@ _grapple_time_to_pull_speed = 0.333
 [node name="Grapple" parent="." instance=ExtResource("6_quhdi")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
+material = SubResource("ShaderMaterial_pj5wf")
 sprite_frames = SubResource("SpriteFrames_bg1fq")
 animation = &"walk"
 autoplay = "idle"

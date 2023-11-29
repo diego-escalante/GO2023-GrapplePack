@@ -1,0 +1,90 @@
+[gd_scene load_steps=11 format=3 uid="uid://enti8jmyhq0y"]
+
+[ext_resource type="Texture2D" uid="uid://ctcjjp354qmcf" path="res://aseprite/puter.png" id="1_5nrj1"]
+[ext_resource type="Script" path="res://objects/checkpoint/checkpoint.gd" id="2_dtob0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_re831"]
+atlas = ExtResource("1_5nrj1")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12dvj"]
+atlas = ExtResource("1_5nrj1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbmvx"]
+atlas = ExtResource("1_5nrj1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb08c"]
+atlas = ExtResource("1_5nrj1")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfpq2"]
+atlas = ExtResource("1_5nrj1")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai256"]
+atlas = ExtResource("1_5nrj1")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mt8hd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_re831")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12dvj")
+}],
+"loop": false,
+"name": &"glitch",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbmvx")
+}],
+"loop": false,
+"name": &"off",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb08c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfpq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb08c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai256")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5omo"]
+size = Vector2(16, 24)
+
+[node name="Checkpoint" type="AnimatedSprite2D" groups=["checkpoint"]]
+sprite_frames = SubResource("SpriteFrames_mt8hd")
+animation = &"glitch"
+autoplay = "off"
+frame = 1
+frame_progress = 1.0
+script = ExtResource("2_dtob0")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_u5omo")
+
+[node name="GlitchTimer" type="Timer" parent="."]
+one_shot = true

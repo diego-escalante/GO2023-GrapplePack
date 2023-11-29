@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://dialogue/dialogue_controller/dialogue_controller.gd" id="1_0s8vo"]
 
-[node name="DialogueController" type="CanvasLayer" groups=["dialogue_controller"]]
+[node name="DialogueController" type="CanvasLayer"]
 layer = 6
 script = ExtResource("1_0s8vo")
 

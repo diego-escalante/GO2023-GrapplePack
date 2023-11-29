@@ -3,8 +3,28 @@ class_name GameController
 
 @onready var _player := $Player as Player
 @onready var _camera := $Camera as ShakingCamera2D
+@onready var _player_shader := (_player.get_node("AnimatedSprite2D") as AnimatedSprite2D).material as ShaderMaterial
 
 func _ready() -> void:
+	_set_dissolve(0)
+	_set_colorize(0)
+	if GameState.is_checkpoint_set():
+		_player.set_input_enabled(false, true)
+		ScreenFade.set_circle(0, 0)
+		GameState.move_player_to_checkpoint()
+		_camera.position_smoothing_enabled = false
+		get_tree().create_timer(0.1).timeout.connect(func(): _camera.position_smoothing_enabled = true)
+		ScreenFade.set_circle(1, 1)
+		_set_colorize(1)
+		_set_dissolve(1)
+		var tween = create_tween()
+		tween.set_parallel(false)
+		tween.tween_method(_set_dissolve, 1.0, 0.0, 0.4).set_delay(0.3)
+		tween.tween_method(_set_colorize, 1.0, 0.0, 0.2)
+		await get_tree().create_timer(0.5).timeout
+		_player.set_input_enabled(true, true)
+		return
+	
 	_player.just_grounded.connect(_on_intro_player_just_grounded)
 	ScreenFade.set_circle(0, 0, Color.BLACK)
 	await get_tree().create_timer(0.5).timeout
@@ -44,4 +64,27 @@ func _on_intro_player_just_grounded() -> void:
 
 
 func respawn() -> void:
+	_player.freeze_position = true
+	ScreenFade.set_circle(0.15, 0.75)
+	TimeController.scale_time(0.01, 0.1)
+	await ScreenFade.done
+	
+	var tween = create_tween()
+	tween.set_parallel(false)
+	tween.tween_method(_set_colorize, 0.0, 1.0, 0.0025)
+	tween.tween_method(_set_dissolve, 0.0, 1.0, 0.005)
+	await tween.finished
+
+	ScreenFade.set_circle(0, 0.5)
+	TimeController.scale_time(1, 0.5)
+	await TimeController.time_scaling_done
+
 	get_tree().reload_current_scene()
+	
+
+func _set_dissolve(value: float) -> void:
+	_player_shader.set_shader_parameter("sensitivity", value)
+
+
+func _set_colorize(value: float) -> void:
+	_player_shader.set_shader_parameter("percentage", value)

@@ -1,5 +1,4 @@
 extends CanvasLayer
-class_name DialogueController
 
 const HANDLER_COLOR := Color(0.471, 0.514, 0.455)
 const FOX_COLOR := Color(0.667, 0.392, 0.302)
@@ -7,6 +6,10 @@ const NONE_COLOR := Color(0.961, 0.914, 0.749)
 
 var _queue : Array[Dialogue]
 var _tween : Tween
+
+# GDScript does not have a Set data structure, so we use a dictionary and ignore the value part
+# of the key-value pairs.
+var _used_dialogue_set := {}
 
 @onready var _label := $MarginContainer/Label as Label
 
@@ -44,6 +47,12 @@ func _force_clear() -> void:
 
 
 func queue_up(dialogues: Array[Dialogue], high_priority := false) -> void:
+	for dialogue in dialogues:
+		if _used_dialogue_set.has(dialogue):
+			dialogues.erase(dialogue)
+		else:
+			_used_dialogue_set[dialogue] = null
+	
 	if high_priority:
 		dialogues.append_array(_queue)
 		_queue = dialogues

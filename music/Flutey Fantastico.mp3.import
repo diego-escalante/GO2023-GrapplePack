@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvmaxqe87f2a1"
+path="res://.godot/imported/Flutey Fantastico.mp3-4c1b7a4e158cb8183ce197377049ca68.mp3str"
+
+[deps]
+
+source_file="res://music/Flutey Fantastico.mp3"
+dest_files=["res://.godot/imported/Flutey Fantastico.mp3-4c1b7a4e158cb8183ce197377049ca68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

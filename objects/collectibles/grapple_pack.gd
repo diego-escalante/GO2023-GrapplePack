@@ -32,6 +32,6 @@ func _on_body_entered(_body: Node2D) -> void:
 	
 	await get_tree().create_timer(2.5).timeout
 	
-	(get_tree().get_first_node_in_group("dialogue_controller") as DialogueController).queue_up(_dialogues)
+	DialogueController.queue_up(_dialogues)
 	
 	queue_free()

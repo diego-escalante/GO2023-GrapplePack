@@ -10,7 +10,7 @@ shader_parameter/center = Vector2(0.5, 0.5)
 shader_parameter/screen_width = 180.0
 shader_parameter/screen_height = 320.0
 
-[node name="ScreenFade" type="CanvasLayer"]
+[node name="ScreenFade2" type="CanvasLayer"]
 process_mode = 3
 layer = 5
 script = ExtResource("1_506ba")
