@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4v1g5x00df10"]
+
+[ext_resource type="Script" path="res://objects/powerables/moving_platform/moving_platform.gd" id="1_d2hhy"]
+[ext_resource type="Texture2D" uid="uid://c6qhuyapmcqtk" path="res://aseprite/path_line.png" id="2_ugmor"]
+[ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="3_pnw1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1mu6"]
+atlas = ExtResource("3_pnw1f")
+region = Rect2(51, 136, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4qxw"]
+custom_solver_bias = 1.0
+size = Vector2(16, 16)
+
+[node name="MovingPlatform" type="Node2D"]
+process_priority = -3
+process_physics_priority = -3
+position = Vector2(-56, -424)
+script = ExtResource("1_d2hhy")
+_is_powered = true
+
+[node name="Line2D" type="Line2D" parent="."]
+z_index = -1
+texture_repeat = 2
+width = 1.0
+texture = ExtResource("2_ugmor")
+texture_mode = 1
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+rotates = false
+cubic_interp = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="PathFollow2D"]
+position = Vector2(56, 424)
+collision_layer = 8
+sync_to_physics = false
+
+[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D/AnimatableBody2D"]
+position = Vector2(-56, -424)
+texture = SubResource("AtlasTexture_q1mu6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/AnimatableBody2D"]
+position = Vector2(-56, -424)
+shape = SubResource("RectangleShape2D_w4qxw")
+one_way_collision = true
+
+[node name="_Timer_156966" type="Timer" parent="PathFollow2D"]
+wait_time = 0.2
+one_shot = true
