@@ -48,7 +48,7 @@ point_count = 8
 script = ExtResource("1_1r3rh")
 
 [node name="Player" parent="." instance=ExtResource("1_rpdod")]
-position = Vector2(-16, -401)
+position = Vector2(-192, -1937)
 _input_enabled = false
 _grapple_enabled = false
 _terminal_velocity = 21.0
@@ -58,7 +58,7 @@ position = Vector2(0, -77)
 remote_path = NodePath("../../Camera")
 
 [node name="Camera" type="Camera2D" parent="." groups=["camera"]]
-position = Vector2(-16, -478)
+position = Vector2(-192, -2014)
 ignore_rotation = false
 limit_left = -282
 limit_right = -102
