@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://cka1fbem226v1"]
 
-[ext_resource type="FontFile" uid="uid://b7ajoqvrx56fk" path="res://fonts/KiwiSoda.ttf" id="1_017bs"]
-[ext_resource type="Script" path="res://UI/title.gd" id="1_f71ax"]
+[ext_resource type="Script" path="res://title/title.gd" id="1_a3141"]
+[ext_resource type="FontFile" uid="uid://b7ajoqvrx56fk" path="res://fonts/KiwiSoda.ttf" id="2_pdns5"]
 
 [node name="Title" type="CanvasLayer"]
-script = ExtResource("1_f71ax")
+script = ExtResource("1_a3141")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -22,7 +22,7 @@ theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = -1
 theme_override_constants/outline_size = 6
 theme_override_constants/line_spacing = -14
-theme_override_fonts/font = ExtResource("1_017bs")
+theme_override_fonts/font = ExtResource("2_pdns5")
 theme_override_font_sizes/font_size = 45
 text = "Grapple
  Pack"

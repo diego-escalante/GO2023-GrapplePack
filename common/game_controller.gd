@@ -29,6 +29,10 @@ func _ready() -> void:
 	ScreenFade.set_circle(0, 0, Color.BLACK)
 	await get_tree().create_timer(0.5).timeout
 	ScreenFade.set_circle(1, 2, Color.BLACK)
+	
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and (event as InputEventMouseButton).pressed:
+		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 
 
 func _unhandled_key_input(event: InputEvent) -> void:

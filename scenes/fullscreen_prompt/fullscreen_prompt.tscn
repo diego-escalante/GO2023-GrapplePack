@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy8g55dcgho4r"]
 
-[ext_resource type="Script" path="res://Scenes/fullscreen_prompt/fullscreen_prompt.gd" id="1_wqoun"]
+[ext_resource type="Script" path="res://scenes/fullscreen_prompt/fullscreen_prompt.gd" id="1_5sgnx"]
 [ext_resource type="PackedScene" uid="uid://dhpnel4052tqj" path="res://scenes/main.tscn" id="2_340dh"]
 
 [node name="FullscreenPrompt" type="CanvasLayer"]
 layer = 4
-script = ExtResource("1_wqoun")
+script = ExtResource("1_5sgnx")
 _next_scene = ExtResource("2_340dh")
 
 [node name="ColorRect" type="ColorRect" parent="."]

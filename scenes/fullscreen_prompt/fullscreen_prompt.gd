@@ -9,7 +9,7 @@ var _tween: Tween
 
 func _ready() -> void:
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-		queue_free()
+		get_tree().change_scene_to_packed(_next_scene)
 		return
 	_no_button.pressed.connect(_exit.bind(false)) 
 	_yes_button.pressed.connect(_exit.bind(true))
