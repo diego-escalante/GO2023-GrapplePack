@@ -9,6 +9,7 @@ class_name MovingPlatform
 @onready var _line := $Line2D as Line2D
 
 func _ready() -> void:
+	super()
 	if _path == null:
 		push_error("No Path2D child node attached to %s!" % name)
 	_path_follow.reparent(_path)

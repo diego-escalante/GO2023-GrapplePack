@@ -9,6 +9,7 @@ class_name MovingSaw
 @onready var _line := $Line2D as Line2D
 
 func _ready() -> void:
+	super()
 	if _path == null:
 		push_error("No Path2D child node attached to %s!" % name)
 	_path_follow.reparent(_path)
@@ -16,6 +17,7 @@ func _ready() -> void:
 		_draw_line()
 
 func _physics_process(delta: float):
+	print(_is_powered)
 	if _is_powered:
 		_path_follow.progress += speed * GameConsts.PIXELS_PER_UNIT * delta
 	
