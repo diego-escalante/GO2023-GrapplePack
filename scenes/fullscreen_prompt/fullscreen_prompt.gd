@@ -19,6 +19,7 @@ func _ready() -> void:
 
 
 func _exit(to_fullscreen: bool) -> void:
+	
 	_no_button.pressed.disconnect(_exit)
 	_yes_button.pressed.disconnect(_exit)
 	if to_fullscreen:
@@ -27,4 +28,4 @@ func _exit(to_fullscreen: bool) -> void:
 		_tween.kill()
 	_tween = create_tween()
 	_tween.tween_property(_container, "modulate", Color(1, 1, 1, 0), 1)
-	_tween.tween_callback(func(): get_tree().change_scene_to_packed(_next_scene)).set_delay(1)
+	_tween.tween_callback(func(): ScreenFade.set_circle(0, 0, Color.BLACK); get_tree().change_scene_to_packed(_next_scene))

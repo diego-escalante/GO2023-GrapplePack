@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dy8g55dcgho4r"]
+[gd_scene load_steps=4 format=3 uid="uid://dy8g55dcgho4r"]
 
 [ext_resource type="Script" path="res://scenes/fullscreen_prompt/fullscreen_prompt.gd" id="1_5sgnx"]
 [ext_resource type="PackedScene" uid="uid://dhpnel4052tqj" path="res://scenes/main.tscn" id="2_340dh"]
+[ext_resource type="PackedScene" uid="uid://c58hpwkgh05i4" path="res://objects/collectibles/grapple_pack.tscn" id="3_roxmr"]
 
 [node name="FullscreenPrompt" type="CanvasLayer"]
 layer = 4
 script = ExtResource("1_5sgnx")
 _next_scene = ExtResource("2_340dh")
+
+[node name="GrapplePack" parent="." instance=ExtResource("3_roxmr")]
+position = Vector2(56, 256)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -30,7 +34,6 @@ theme_override_constants/outline_size = 0
 text = "Fullscreen recommended. 
 Go fullscreen?"
 horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2

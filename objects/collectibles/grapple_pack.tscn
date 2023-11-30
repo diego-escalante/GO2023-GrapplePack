@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://beneasnqv0sh1" path="res://dialogue/tutorial/grapple_prompt.tres" id="5_eyxe7"]
 [ext_resource type="Resource" uid="uid://kn21jefpliy2" path="res://dialogue/tutorial/pause_prompt.tres" id="6_7hbcl"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ga2ik"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qt5fp"]
 shader = ExtResource("1_23xww")
 shader_parameter/color = Color(0.960784, 0.913725, 0.74902, 1)
 shader_parameter/percentage = 0.0
@@ -96,19 +96,17 @@ radius = 8.0
 
 [node name="GrapplePack" type="Sprite2D" groups=["grapple_pack"]]
 process_mode = 3
-material = SubResource("ShaderMaterial_ga2ik")
-rotation = 6.28319
+material = SubResource("ShaderMaterial_qt5fp")
 texture = ExtResource("1_r3ii7")
-offset = Vector2(0, 1.375)
 script = ExtResource("2_u47mb")
 _packed_title = ExtResource("3_00dyx")
 _dialogues = Array[Resource("res://dialogue/dialogue.gd")]([ExtResource("5_eyxe7"), ExtResource("6_7hbcl")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "default"
 libraries = {
 "": SubResource("AnimationLibrary_6sq28")
 }
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="."]
 visible = false
