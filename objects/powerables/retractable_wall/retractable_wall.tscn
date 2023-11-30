@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d14nqbqk1syth"]
+[gd_scene load_steps=9 format=3 uid="uid://d14nqbqk1syth"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_wall/retractable_wall.gd" id="1_5xg1p"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_gme2g"]
@@ -35,6 +35,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsfp2"]
 size = Vector2(16, 16)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6scjn"]
+size = Vector2(16, 15)
+
 [node name="RetractableWall" type="Node2D"]
 script = ExtResource("1_5xg1p")
 
@@ -48,3 +51,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_jsfp2")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_6scjn")

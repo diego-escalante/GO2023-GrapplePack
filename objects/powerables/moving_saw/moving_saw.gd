@@ -17,7 +17,6 @@ func _ready() -> void:
 		_draw_line()
 
 func _physics_process(delta: float):
-	print(_is_powered)
 	if _is_powered:
 		_path_follow.progress += speed * GameConsts.PIXELS_PER_UNIT * delta
 	
