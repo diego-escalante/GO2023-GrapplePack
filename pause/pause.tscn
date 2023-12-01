@@ -312,4 +312,5 @@ flat = true
 [connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/VBoxContainer2/sounds_slider" to="." method="_on_sounds_slider_value_changed"]
 [connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/VBoxContainer2/voices_slider" to="." method="_on_voices_slider_value_changed"]
 [connection signal="toggled" from="Control/VBoxContainer/HBoxContainer4/VBoxContainer2/long_grapple_check" to="." method="_on_long_grapple_check_toggled"]
+[connection signal="toggled" from="Control/VBoxContainer/HBoxContainer4/VBoxContainer2/slow_mode_check" to="." method="_on_slow_mode_check_toggled"]
 [connection signal="toggled" from="Control/VBoxContainer/HBoxContainer4/VBoxContainer2/invinsibility_check" to="." method="_on_invinsibility_check_toggled"]

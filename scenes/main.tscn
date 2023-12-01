@@ -222,8 +222,6 @@ height = 64.0
 [node name="GameController" type="Node2D"]
 script = ExtResource("1_1r3rh")
 
-[node name="Pause" parent="." instance=ExtResource("2_yq3rl")]
-
 [node name="Player" parent="." instance=ExtResource("1_rpdod")]
 position = Vector2(-48, -7025)
 _input_enabled = false
@@ -233,6 +231,8 @@ _terminal_velocity = 21.0
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 position = Vector2(0, -77)
 remote_path = NodePath("../../Camera")
+
+[node name="Pause" parent="." instance=ExtResource("2_yq3rl")]
 
 [node name="Camera" type="Camera2D" parent="." groups=["camera"]]
 position = Vector2(-48, -7102)

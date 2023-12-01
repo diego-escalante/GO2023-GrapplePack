@@ -80,7 +80,7 @@ func respawn() -> void:
 	await tween.finished
 
 	ScreenFade.set_circle(0, 0.5)
-	TimeController.scale_time(1, 0.5)
+	TimeController.scale_time(1.0 if not GameState.slow_mode else 0.5, 0.5)
 	await TimeController.time_scaling_done
 
 	get_tree().reload_current_scene()

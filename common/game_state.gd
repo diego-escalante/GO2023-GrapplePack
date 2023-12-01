@@ -1,5 +1,9 @@
 extends Node
 
+var slow_mode := false
+var invinsible := false
+var long_grapple := false
+
 var _spawn_position: Vector2 :
 	set(val):
 		_spawn_position = val
