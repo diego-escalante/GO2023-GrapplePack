@@ -92,3 +92,16 @@ func _set_dissolve(value: float) -> void:
 
 func _set_colorize(value: float) -> void:
 	_player_shader.set_shader_parameter("percentage", value)
+
+
+func _on_end_area_body_entered(_body):
+	_player.freeze_position = true
+	_player.set_input_enabled(false, false)
+	ScreenFade.set_circle(0.0, 5.0)
+	await ScreenFade.done
+	var tween := create_tween()
+	$End/Control.modulate = Color.TRANSPARENT
+	($End/Control/VBoxContainer/TimeLabel as Label).text = "Duration: %dm %ds" % [floor(GameState.elapsed_time / 60), int(GameState.elapsed_time) % 60]
+	($End/Control/VBoxContainer/DeathsLabel as Label).text = "Super Duper Puter Saves: %d" % GameState.deaths
+	$End.visible = true
+	tween.tween_property($End/Control, "modulate", Color.WHITE, 2.0)

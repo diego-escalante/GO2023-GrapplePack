@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=67 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Script" path="res://common/game_controller.gd" id="1_1r3rh"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="1_rpdod"]
@@ -20,6 +20,9 @@
 [ext_resource type="PackedScene" uid="uid://dbgwfkpnpnrce" path="res://objects/powerables/retractable_hook/retractable_hook.tscn" id="17_7xyvo"]
 [ext_resource type="PackedScene" uid="uid://b4v1g5x00df10" path="res://objects/powerables/moving_platform/moving_platform.tscn" id="18_hydkm"]
 [ext_resource type="Texture2D" uid="uid://dbcwtngadpqxd" path="res://aseprite/light.png" id="19_ml7c4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g77rg"]
+size = Vector2(24, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pd771"]
 size = Vector2(160, 40)
@@ -223,7 +226,7 @@ height = 64.0
 script = ExtResource("1_1r3rh")
 
 [node name="Player" parent="." instance=ExtResource("1_rpdod")]
-position = Vector2(-48, -7025)
+position = Vector2(-192, -8128)
 _input_enabled = false
 _grapple_enabled = false
 _terminal_velocity = 21.0
@@ -232,10 +235,68 @@ _terminal_velocity = 21.0
 position = Vector2(0, -77)
 remote_path = NodePath("../../Camera")
 
+[node name="End" type="CanvasLayer" parent="."]
+layer = 6
+visible = false
+
+[node name="Control" type="Control" parent="End"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="End/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="End/Control/VBoxContainer"]
+layout_mode = 2
+text = "You made it out with the
+Grapple Pack!
+
+Thank you for playing!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="End/Control/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="End/Control/VBoxContainer"]
+layout_mode = 2
+text = "Duration: 23m 01s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathsLabel" type="Label" parent="End/Control/VBoxContainer"]
+layout_mode = 2
+text = "Super Duper Puter Saves: 103"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Pause" parent="." instance=ExtResource("2_yq3rl")]
+visible = false
+
+[node name="EndArea" type="Area2D" parent="."]
+position = Vector2(-120, -8245)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
+position = Vector2(4, -3)
+shape = SubResource("RectangleShape2D_g77rg")
 
 [node name="Camera" type="Camera2D" parent="." groups=["camera"]]
-position = Vector2(-48, -7102)
+position = Vector2(-192, -8205)
 ignore_rotation = false
 limit_left = -282
 limit_top = -8288
@@ -257,7 +318,7 @@ layer_0/tile_data = PackedInt32Array(131066, 589825, 3, 131067, 589825, 3, 13106
 position = Vector2(0, -424)
 
 [node name="GrapplePack2" parent="." instance=ExtResource("10_csdbd")]
-position = Vector2(-24, -7024)
+position = Vector2(-168, -8128)
 
 [node name="DialogueController" parent="." instance=ExtResource("10_d2v51")]
 
@@ -644,6 +705,14 @@ _upstream = NodePath("../Switch5")
 [node name="RetractableWall5" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("16_drqmr")]
 position = Vector2(-56, -3032)
 _upstream = NodePath("../Switch5")
+
+[node name="Control" type="Control" parent="RetractableWall5"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 56.0
+offset_top = 3032.0
+offset_right = 96.0
+offset_bottom = 3072.0
 
 [node name="Switch6" parent="." node_paths=PackedStringArray("_upstream") instance=ExtResource("13_skxt6")]
 position = Vector2(-24, -3016)
@@ -1037,3 +1106,5 @@ shape = SubResource("CapsuleShape2D_mfom0")
 position = Vector2(-48, -8248)
 texture = ExtResource("19_ml7c4")
 flip_h = true
+
+[connection signal="body_entered" from="EndArea" to="." method="_on_end_area_body_entered"]
