@@ -1,6 +1,8 @@
 extends AnimatedSprite2D
 class_name Checkpoint
 
+@export var sound : AudioStream
+
 @onready var _area := $Area2D as Area2D
 @onready var _timer := $GlitchTimer as Timer
 var _is_on := false
@@ -16,7 +18,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	if not _is_on:
 		get_tree().call_group("checkpoint", "turn_off")
 		_is_on = true
-		GameState.set_checkpoint(self)
+		GameState.set_checkpoint(self, sound)
 		play("on")
 
 	

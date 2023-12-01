@@ -1,6 +1,8 @@
 extends CanvasLayer
 
 @export var sample_sounds: Array[AudioStream] = []
+@export var _fast_sound: AudioStream
+@export var _slow_sound: AudioStream
 
 var _is_paused := false
 var _tweening := false
@@ -34,6 +36,7 @@ func _unhandled_input(event: InputEvent):
 			return
 		
 		_is_paused = not _is_paused
+		SoundController.play(_slow_sound if _is_paused else _fast_sound, -12, 0.4)
 		
 		_tweening = true
 		if _is_paused:

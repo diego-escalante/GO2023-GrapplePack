@@ -21,8 +21,10 @@ func is_checkpoint_set() -> bool:
 	return _is_checkpoint_set
 
 
-func set_checkpoint(checkpoint: Checkpoint) -> void:
-	_spawn_position = checkpoint.global_position + Vector2.DOWN * 6.5
+func set_checkpoint(checkpoint: Checkpoint, audio: AudioStream) -> void:
+	if _spawn_position != checkpoint.global_position + Vector2.DOWN * 6.5:
+		_spawn_position = checkpoint.global_position + Vector2.DOWN * 6.5
+		SoundController.play(audio, -2, randf_range(0.9, 1.1))
 
 
 func move_player_to_checkpoint() -> void:

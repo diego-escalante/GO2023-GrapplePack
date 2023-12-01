@@ -3,6 +3,9 @@ class_name Grapple
 
 enum State {IDLE, EXTENDING, HOOKED, RETRACTING}
 
+@export var shoot_grapple_sound : AudioStream
+#@export var ding_grapple_sound : AudioStream
+
 @export var input_enabled := true
 @export var speed := 50.0
 @export var grapple_length := 5.0
@@ -16,6 +19,8 @@ var _state := State.IDLE :
 		if val == State.IDLE:
 			_can_grapple = false
 			get_tree().create_timer(0.1).timeout.connect(func(): _can_grapple = true)
+		#elif val == State.HOOKED:
+			#SoundController.play(ding_grapple_sound, -15, randf_range(0.4, 0.6))
 			
 var _target := Vector2.ZERO
 var _is_target_grappable := false
@@ -35,6 +40,7 @@ func _ready() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("grapple") and _state == State.IDLE and input_enabled and _can_grapple:
 		_set_target()
+		SoundController.play(shoot_grapple_sound, -8, randf_range(1.0, 1.2))
 		_state = State.EXTENDING
 		hook.global_position = global_position
 		

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://6aafxglraw58"]
+[gd_scene load_steps=10 format=3 uid="uid://6aafxglraw58"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_platform/retractable_platform.gd" id="1_pm1jq"]
+[ext_resource type="AudioStream" uid="uid://b5kkf5u6h4vi4" path="res://sounds/Retractable Platform.wav" id="2_7edp5"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_f4yiw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6hty"]
@@ -44,6 +45,7 @@ size = Vector2(16, 16)
 
 [node name="RetractablePlatform" type="Node2D"]
 script = ExtResource("1_pm1jq")
+_sound = ExtResource("2_7edp5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k2w06")

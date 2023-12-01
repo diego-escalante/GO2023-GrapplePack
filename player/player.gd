@@ -3,6 +3,9 @@ class_name Player
 
 signal just_grounded
 
+@export var _hit_sound: AudioStream
+@export var _step_sound: AudioStream
+#@export var grapple_pull_sound: AudioStream
 @export var saw_dialogue: Array[Dialogue] = []
 
 @export var _input_enabled := true
@@ -42,6 +45,7 @@ func _ready() -> void:
 	_drop_timer.timeout.connect(func(): set_collision_mask_value(4, true))
 	_hitbox.body_entered.connect(_on_hit)
 	set_input_enabled(_input_enabled, _grapple_enabled)
+	$StepTimer.timeout.connect(_on_step_timer_timeout)
 
 
 func _physics_process(delta: float) -> void:
@@ -51,6 +55,8 @@ func _physics_process(delta: float) -> void:
 	# Grappled Physics
 	if _grapple.is_hooked() and _input_enabled:
 		set_collision_mask_value(4, false)
+		#if _grapple_current_speed == 0:
+			#SoundController.play(grapple_pull_sound, -12, randf_range( 0.7, 0.9))
 		_grapple_current_speed = min(_grapple_current_speed + _grapple_acceleration * delta, _grapple_pull_speed)
 		velocity = _grapple.get_direction() * _grapple_current_speed * GameConsts.PIXELS_PER_UNIT
 		if velocity.length() * delta > _grapple.get_current_chain_length():
@@ -103,6 +109,7 @@ func _physics_process(delta: float) -> void:
 	update_animation(input.get("down_held", false))
 	
 	if not _prev_is_on_floor and is_on_floor():
+		SoundController.play(_step_sound, -12, randf_range(0.8, 1.2))
 		just_grounded.emit()
 		
 	_prev_is_on_floor = is_on_floor()
@@ -183,6 +190,7 @@ func _calculate_run_velocity(velocity_x: float, h_axis: float, delta: float) -> 
 		)
 
 func _on_hit(_body: Node2D) -> void:
+	SoundController.play(_hit_sound)
 	if _body.name == "Saw":
 		DialogueController.queue_up(saw_dialogue)
 	_hitbox.body_entered.disconnect(_on_hit)
@@ -200,3 +208,8 @@ func set_input_enabled(movement: bool, grapple: bool) -> void:
 		_sprite.frame = old_sprite.frame
 		_sprite.flip_h = old_sprite.flip_h
 	_sprite.visible = true
+
+
+func _on_step_timer_timeout() -> void:
+	if is_on_floor() and velocity.x != 0:
+		SoundController.play(_step_sound, -12, randf_range(0.8, 1.2))

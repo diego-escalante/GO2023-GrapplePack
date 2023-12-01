@@ -16,7 +16,6 @@ script = ExtResource("1_ed5vr")
 
 [node name="Organ" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_rhs2v")
-volume_db = -80.0
 autoplay = true
 bus = &"PreMusic"
 

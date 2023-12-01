@@ -23,6 +23,7 @@ GameConsts="*res://common/game_consts.gd"
 GameState="*res://common/game_state.gd"
 DialogueController="*res://dialogue/dialogue_controller/dialogue_controller.tscn"
 MusicPlayer="*res://music/music_player.tscn"
+SoundController="*res://common/sound_controller.gd"
 
 [display]
 
@@ -36,6 +37,7 @@ window/stretch/mode="canvas_items"
 [file_customization]
 
 folder_colors={
+"res://sounds/": "green",
 "res://voice_lines/": "yellow"
 }
 

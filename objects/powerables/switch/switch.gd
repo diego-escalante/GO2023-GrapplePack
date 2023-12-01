@@ -1,6 +1,7 @@
 extends Powerable
 class_name Switch
 
+@export var _flip_sound : AudioStream
 @onready var _sprite := $Sprite as AnimatedSprite2D
 
 func _ready() -> void:
@@ -21,4 +22,5 @@ func _on_grappled(_body: Node2D) -> void:
 	
 
 func _change() -> void:
+	SoundController.play(_flip_sound, 0, randf_range(0.8, 1.0))
 	_sprite.play("default", 1 if _is_powered else -1)

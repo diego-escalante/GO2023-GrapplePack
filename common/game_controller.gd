@@ -3,6 +3,10 @@ class_name GameController
 
 @export var _dialogues: Array[Dialogue] = []
 @export var _respawn_dialogues : Array[Dialogue] = []
+@export var _big_thud_sound: AudioStream
+
+@export var _fast_sound: AudioStream
+@export var _slow_sound: AudioStream
 
 @onready var _player := $Player as Player
 @onready var _camera := $Camera as ShakingCamera2D
@@ -23,6 +27,7 @@ func _ready() -> void:
 		_set_dissolve(1)
 		var tween = create_tween()
 		tween.set_parallel(false)
+		SoundController.play(_fast_sound, -12, 0.4)
 		tween.tween_method(_set_dissolve, 1.0, 0.0, 0.4).set_delay(0.3)
 		tween.tween_method(_set_colorize, 1.0, 0.0, 0.2)
 		await get_tree().create_timer(0.5).timeout
@@ -64,6 +69,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _on_intro_player_just_grounded() -> void:
 	_player.just_grounded.disconnect(_on_intro_player_just_grounded)
+	SoundController.play(_big_thud_sound)
 	_player.freeze_position = true
 	_player._sprite.play("crouch")
 	_camera.add_trauma(0.85)
@@ -80,7 +86,7 @@ func respawn() -> void:
 	ScreenFade.set_circle(0.15, 0.75)
 	TimeController.scale_time(0.01, 0.1)
 	await ScreenFade.done
-	
+	SoundController.play(_slow_sound, -12, 0.4)
 	var tween = create_tween()
 	tween.set_parallel(false)
 	tween.tween_method(_set_colorize, 0.0, 1.0, 0.0025)

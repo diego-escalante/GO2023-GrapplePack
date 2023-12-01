@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c58hpwkgh05i4"]
+[gd_scene load_steps=20 format=3 uid="uid://c58hpwkgh05i4"]
 
 [ext_resource type="Shader" path="res://objects/collectibles/colorize.gdshader" id="1_23xww"]
 [ext_resource type="Texture2D" uid="uid://xi7fraef0135" path="res://aseprite/grapple_pack.png" id="1_r3ii7"]
 [ext_resource type="Script" path="res://objects/collectibles/grapple_pack.gd" id="2_u47mb"]
 [ext_resource type="PackedScene" uid="uid://cka1fbem226v1" path="res://title/title.tscn" id="3_00dyx"]
+[ext_resource type="AudioStream" uid="uid://wcsxlr2fdooy" path="res://sounds/d_fast.wav" id="4_mscxk"]
+[ext_resource type="AudioStream" uid="uid://ccscxfp0ky2i6" path="res://sounds/d_slow.wav" id="5_5q8mr"]
 [ext_resource type="Script" path="res://dialogue/dialogue.gd" id="5_cow23"]
 [ext_resource type="Resource" uid="uid://beneasnqv0sh1" path="res://dialogue/tutorial/grapple_prompt.tres" id="5_eyxe7"]
 [ext_resource type="Resource" uid="uid://kn21jefpliy2" path="res://dialogue/tutorial/pause_prompt.tres" id="6_7hbcl"]
@@ -116,6 +118,8 @@ process_mode = 3
 material = SubResource("ShaderMaterial_qt5fp")
 texture = ExtResource("1_r3ii7")
 script = ExtResource("2_u47mb")
+fast_sound = ExtResource("4_mscxk")
+slow_sound = ExtResource("5_5q8mr")
 _packed_title = ExtResource("3_00dyx")
 _dialogues = Array[ExtResource("5_cow23")]([SubResource("Resource_ggqkr"), SubResource("Resource_ur27v"), ExtResource("5_eyxe7"), ExtResource("6_7hbcl")])
 

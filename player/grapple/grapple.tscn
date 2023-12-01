@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0h6gwsg2ewh2"]
+[gd_scene load_steps=7 format=3 uid="uid://d0h6gwsg2ewh2"]
 
 [ext_resource type="Script" path="res://player/grapple/grapple.gd" id="1_tytxq"]
+[ext_resource type="AudioStream" uid="uid://bsymxv1w2pxoy" path="res://sounds/ShootGrapple.wav" id="2_cr66k"]
 [ext_resource type="Texture2D" uid="uid://ck7n7p5dqrg5e" path="res://aseprite/grapple_chain.png" id="2_wb2c2"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="3_16sqy"]
 
@@ -14,6 +15,7 @@ radius = 1.41421
 [node name="Grapple" type="Node2D"]
 visible = false
 script = ExtResource("1_tytxq")
+shoot_grapple_sound = ExtResource("2_cr66k")
 
 [node name="Chain" type="Line2D" parent="."]
 texture_repeat = 2

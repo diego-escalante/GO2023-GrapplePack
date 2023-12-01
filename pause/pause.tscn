@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi6ibf4ocomk"]
+[gd_scene load_steps=11 format=3 uid="uid://bi6ibf4ocomk"]
 
 [ext_resource type="Script" path="res://pause/pause.gd" id="1_mpjwk"]
 [ext_resource type="FontFile" uid="uid://b7ajoqvrx56fk" path="res://fonts/KiwiSoda.ttf" id="1_wmyng"]
 [ext_resource type="Texture2D" uid="uid://bkw6v8krimqxq" path="res://aseprite/UI/grabber.png" id="2_g7u8l"]
+[ext_resource type="AudioStream" uid="uid://wcsxlr2fdooy" path="res://sounds/d_fast.wav" id="2_ulo52"]
+[ext_resource type="AudioStream" uid="uid://ccscxfp0ky2i6" path="res://sounds/d_slow.wav" id="3_j3are"]
 [ext_resource type="Texture2D" uid="uid://75smbelog52e" path="res://aseprite/UI/grabber_light.png" id="3_vw8rq"]
 [ext_resource type="Texture2D" uid="uid://bhlc3on0dj8g2" path="res://aseprite/UI/Check.png" id="4_qphhf"]
 [ext_resource type="Texture2D" uid="uid://boqucaghdj2su" path="res://aseprite/UI/uncheck.png" id="5_vcwoj"]
@@ -27,6 +29,8 @@ border_color = Color(0.215686, 0.164706, 0.223529, 1)
 process_mode = 3
 layer = 15
 script = ExtResource("1_mpjwk")
+_fast_sound = ExtResource("2_ulo52")
+_slow_sound = ExtResource("3_j3are")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3

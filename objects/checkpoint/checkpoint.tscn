@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://enti8jmyhq0y"]
+[gd_scene load_steps=12 format=3 uid="uid://enti8jmyhq0y"]
 
 [ext_resource type="Texture2D" uid="uid://ctcjjp354qmcf" path="res://aseprite/puter.png" id="1_5nrj1"]
 [ext_resource type="Script" path="res://objects/checkpoint/checkpoint.gd" id="2_dtob0"]
+[ext_resource type="AudioStream" uid="uid://bufl52mwlep0y" path="res://sounds/d_puter2.wav" id="3_380jk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_re831"]
 atlas = ExtResource("1_5nrj1")
@@ -76,6 +77,7 @@ autoplay = "off"
 frame = 1
 frame_progress = 1.0
 script = ExtResource("2_dtob0")
+sound = ExtResource("3_380jk")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

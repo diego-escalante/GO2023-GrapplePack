@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://d14nqbqk1syth"]
+[gd_scene load_steps=15 format=3 uid="uid://d14nqbqk1syth"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_wall/retractable_wall.gd" id="1_5xg1p"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_gme2g"]
 [ext_resource type="Script" path="res://dialogue/dialogue.gd" id="2_qm60q"]
 [ext_resource type="AudioStream" uid="uid://dyalbqxst074t" path="res://voice_lines/H37.wav" id="3_6n1jk"]
 [ext_resource type="AudioStream" uid="uid://redoyxtiubwn" path="res://voice_lines/H38.wav" id="4_l84cc"]
+[ext_resource type="AudioStream" uid="uid://b5kkf5u6h4vi4" path="res://sounds/Retractable Platform.wav" id="5_a4l6k"]
 
 [sub_resource type="Resource" id="Resource_vrmqc"]
 script = ExtResource("2_qm60q")
@@ -58,6 +59,7 @@ size = Vector2(16, 15)
 [node name="RetractableWall" type="Node2D"]
 script = ExtResource("1_5xg1p")
 _dialogue = Array[ExtResource("2_qm60q")]([SubResource("Resource_vrmqc"), SubResource("Resource_li7ig")])
+_sound = ExtResource("5_a4l6k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u3pt6")

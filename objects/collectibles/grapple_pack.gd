@@ -1,6 +1,8 @@
 extends Sprite2D
 class_name GrapplePack
 
+@export var fast_sound: AudioStream
+@export var slow_sound: AudioStream
 @export var _packed_title: PackedScene
 @export var _dialogues: Array[Dialogue]
 
@@ -18,6 +20,7 @@ func _process(_delta: float) -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	_area.body_entered.disconnect(_on_body_entered)
 	MusicPlayer.start_playing_synth()
+	#SoundController.play(slow_sound, -12)
 
 	ScreenFade.set_circle(0.15, 0.75)
 	TimeController.scale_time(0.01, 0.1)
@@ -31,6 +34,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	(get_tree().get_first_node_in_group("player") as Player).set_input_enabled(false, true)
 
 	ScreenFade.set_circle(1, 0.75)
+	#SoundController.play(fast_sound, -12)
 	TimeController.scale_time(1.0 if not GameState.slow_mode else 0.5, 0.75)
 	
 	await get_tree().create_timer(2).timeout

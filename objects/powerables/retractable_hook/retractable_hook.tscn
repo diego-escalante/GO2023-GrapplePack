@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbgwfkpnpnrce"]
+[gd_scene load_steps=10 format=3 uid="uid://dbgwfkpnpnrce"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_hook/retractable_hook.gd" id="1_o3ycw"]
+[ext_resource type="AudioStream" uid="uid://c5i7r4sb242ct" path="res://sounds/HookDeploy.wav" id="2_0408i"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_fjjq2"]
 [ext_resource type="PackedScene" uid="uid://cujqblnawqesf" path="res://objects/grapple_area/grapple_area.tscn" id="3_k713h"]
 
@@ -38,6 +39,7 @@ radius = 12.0
 
 [node name="RetractableHook" type="Node2D"]
 script = ExtResource("1_o3ycw")
+_hook_sound = ExtResource("2_0408i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4te07")
