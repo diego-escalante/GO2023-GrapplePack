@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=75 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Script" path="res://common/game_controller.gd" id="1_1r3rh"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="1_rpdod"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dbgwfkpnpnrce" path="res://objects/powerables/retractable_hook/retractable_hook.tscn" id="17_7xyvo"]
 [ext_resource type="PackedScene" uid="uid://b4v1g5x00df10" path="res://objects/powerables/moving_platform/moving_platform.tscn" id="18_hydkm"]
 [ext_resource type="Texture2D" uid="uid://dbcwtngadpqxd" path="res://aseprite/light.png" id="19_ml7c4"]
+[ext_resource type="PackedScene" uid="uid://dn3761iitt4ql" path="res://music/music_trigger/music_trigger.tscn" id="21_2xk3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g77rg"]
 size = Vector2(24, 48)
@@ -222,11 +223,32 @@ height = 176.0
 radius = 8.0
 height = 64.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivnsw"]
+size = Vector2(72, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy0uh"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptc74"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8jp0"]
+size = Vector2(80, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0epx"]
+size = Vector2(32, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajv3q"]
+size = Vector2(64, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5srsv"]
+size = Vector2(160, 32)
+
 [node name="GameController" type="Node2D"]
 script = ExtResource("1_1r3rh")
 
 [node name="Player" parent="." instance=ExtResource("1_rpdod")]
-position = Vector2(-192, -8128)
+position = Vector2(-192, -1840)
 _input_enabled = false
 _grapple_enabled = false
 _terminal_velocity = 21.0
@@ -296,7 +318,7 @@ position = Vector2(4, -3)
 shape = SubResource("RectangleShape2D_g77rg")
 
 [node name="Camera" type="Camera2D" parent="." groups=["camera"]]
-position = Vector2(-192, -8205)
+position = Vector2(-192, -1917)
 ignore_rotation = false
 limit_left = -282
 limit_top = -8288
@@ -318,7 +340,7 @@ layer_0/tile_data = PackedInt32Array(131066, 589825, 3, 131067, 589825, 3, 13106
 position = Vector2(0, -424)
 
 [node name="GrapplePack2" parent="." instance=ExtResource("10_csdbd")]
-position = Vector2(-168, -8128)
+position = Vector2(-168, -1840)
 
 [node name="DialogueController" parent="." instance=ExtResource("10_d2v51")]
 
@@ -1106,5 +1128,107 @@ shape = SubResource("CapsuleShape2D_mfom0")
 position = Vector2(-48, -8248)
 texture = ExtResource("19_ml7c4")
 flip_h = true
+
+[node name="MusicTrigger" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(16, -120)
+_transition_duration = 0.1
+_organ_volume = 1
+_drum1_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger"]
+position = Vector2(-20, 4)
+shape = SubResource("RectangleShape2D_ivnsw")
+
+[node name="MusicTrigger2" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(48, -208)
+_transition_duration = 0.1
+_organ_volume = 1
+_drum1_volume = 1
+_drum2_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger2"]
+position = Vector2(-20, 4)
+shape = SubResource("RectangleShape2D_ivnsw")
+
+[node name="MusicTrigger3" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(24, -336)
+_transition_duration = 0.1
+_organ_volume = 1
+_drum1_volume = 1
+_drum2_volume = 1
+_drum3_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger3"]
+position = Vector2(-20, 4)
+shape = SubResource("RectangleShape2D_ivnsw")
+
+[node name="MusicTrigger4" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(-64, -1456)
+_organ_volume = 1
+_drum1_volume = 1
+_drum2_volume = 1
+_drum3_volume = 1
+_flute_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger4"]
+shape = SubResource("RectangleShape2D_wy0uh")
+
+[node name="MusicTrigger5" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(-56, -2144)
+_drum2_volume = 1
+_drum3_volume = 1
+_flute_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger5"]
+shape = SubResource("RectangleShape2D_ptc74")
+
+[node name="MusicTrigger6" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(0, -2928)
+_drum1_volume = 1
+_drum2_volume = 1
+_drum3_volume = 1
+_flute_volume = 1
+_guitar_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger6"]
+position = Vector2(-8, 3)
+shape = SubResource("RectangleShape2D_l8jp0")
+
+[node name="MusicTrigger7" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(-64, -3216)
+_organ_volume = 1
+_drum1_volume = 1
+_drum2_volume = 1
+_drum3_volume = 1
+_flute_volume = 1
+_guitar_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger7"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_i0epx")
+
+[node name="MusicTrigger8" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(0, -4096)
+_transition_duration = 10.0
+_organ_volume = 1
+_drum1_volume = 1
+_drum2_volume = 1
+_drum3_volume = 1
+_flute_volume = 1
+_harp_volume = 1
+_guitar_volume = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger8"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ajv3q")
+
+[node name="MusicTrigger9" parent="." instance=ExtResource("21_2xk3w")]
+position = Vector2(0, -8128)
+_transition_duration = 10.0
+_guitar_volume = 1
+_stop_synth = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTrigger9"]
+shape = SubResource("RectangleShape2D_5srsv")
 
 [connection signal="body_entered" from="EndArea" to="." method="_on_end_area_body_entered"]

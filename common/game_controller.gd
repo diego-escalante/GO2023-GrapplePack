@@ -65,6 +65,7 @@ func _on_intro_player_just_grounded() -> void:
 	await get_tree().create_timer(1).timeout
 	_player.freeze_position = false
 	_player.set_input_enabled(true, false)
+	MusicPlayer.set_volumes(0.2, 1, 0, 0, 0, 0, 0, 0)
 
 
 func respawn() -> void:

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn3761iitt4ql"]
+
+[ext_resource type="Script" path="res://music/music_trigger/music_trigger.gd" id="1_npdkq"]
+
+[node name="MusicTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_npdkq")
+_transition_duration = 2.0

@@ -1,0 +1,60 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0p734tw3p3bw"]
+
+[ext_resource type="Script" path="res://music/music_player.gd" id="1_ed5vr"]
+[ext_resource type="AudioStream" uid="uid://43yqjx4uft7j" path="res://music/028 Organ.mp3" id="1_rhs2v"]
+[ext_resource type="AudioStream" uid="uid://cylxj1cbap1ov" path="res://music/448 Harp Vox.mp3" id="2_wnugp"]
+[ext_resource type="AudioStream" uid="uid://bt68g1phmet1a" path="res://music/DrumBeat 1.mp3" id="3_1g1fu"]
+[ext_resource type="AudioStream" uid="uid://b2uxwf3mme652" path="res://music/DrumBeat 2.mp3" id="4_v04lw"]
+[ext_resource type="AudioStream" uid="uid://c0ao5mvlcv5br" path="res://music/DrumBeat 3.mp3" id="5_svl00"]
+[ext_resource type="AudioStream" uid="uid://cvmaxqe87f2a1" path="res://music/Flutey Fantastico.mp3" id="6_nkeim"]
+[ext_resource type="AudioStream" uid="uid://da7dhyp0ocvho" path="res://music/Melody 049 12 Str Guitar.mp3" id="7_jxj4m"]
+[ext_resource type="AudioStream" uid="uid://dvptk73eb112r" path="res://music/ONE SHOT 073 Synth Strings.mp3" id="8_pydae"]
+
+[node name="MusicPlayer" type="Node"]
+process_mode = 3
+script = ExtResource("1_ed5vr")
+
+[node name="Organ" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rhs2v")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Drum1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1g1fu")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Drum2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_v04lw")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Drum3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_svl00")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Guitar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jxj4m")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Flute" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nkeim")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Harp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wnugp")
+volume_db = -80.0
+autoplay = true
+bus = &"Music"
+
+[node name="Synth" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_pydae")

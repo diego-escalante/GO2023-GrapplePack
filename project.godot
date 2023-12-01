@@ -22,6 +22,7 @@ TimeController="*res://common/time_controller.gd"
 GameConsts="*res://common/game_consts.gd"
 GameState="*res://common/game_state.gd"
 DialogueController="*res://dialogue/dialogue_controller/dialogue_controller.tscn"
+MusicPlayer="*res://music/music_player.tscn"
 
 [display]
 
