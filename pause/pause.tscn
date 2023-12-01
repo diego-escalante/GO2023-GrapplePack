@@ -1,0 +1,296 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi6ibf4ocomk"]
+
+[ext_resource type="Script" path="res://pause/pause.gd" id="1_mpjwk"]
+[ext_resource type="FontFile" uid="uid://b7ajoqvrx56fk" path="res://fonts/KiwiSoda.ttf" id="1_wmyng"]
+[ext_resource type="Texture2D" uid="uid://bkw6v8krimqxq" path="res://aseprite/UI/grabber.png" id="2_g7u8l"]
+[ext_resource type="Texture2D" uid="uid://75smbelog52e" path="res://aseprite/UI/grabber_light.png" id="3_vw8rq"]
+[ext_resource type="Texture2D" uid="uid://bhlc3on0dj8g2" path="res://aseprite/UI/Check.png" id="4_qphhf"]
+[ext_resource type="Texture2D" uid="uid://boqucaghdj2su" path="res://aseprite/UI/uncheck.png" id="5_vcwoj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufhvr"]
+bg_color = Color(0.215686, 0.164706, 0.223529, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.215686, 0.164706, 0.223529, 1)
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1p2rf"]
+bg_color = Color(0.470588, 0.513726, 0.454902, 1)
+border_width_left = 1
+border_width_right = 1
+border_color = Color(0.215686, 0.164706, 0.223529, 1)
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+layer = 15
+visible = false
+script = ExtResource("1_mpjwk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -24.0
+offset_right = 90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/line_spacing = -6
+text = "Kiwi Soda and Pear Soda 
+fonts from fontenddev.com"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="Label" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.666667, 0.392157, 0.301961, 1)
+theme_override_colors/font_outline_color = Color(0.215686, 0.164706, 0.223529, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -1
+theme_override_constants/outline_size = 20
+theme_override_constants/line_spacing = -9
+theme_override_fonts/font = ExtResource("1_wmyng")
+theme_override_font_sizes/font_size = 32
+text = "Grapple Pack"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.913725, 0.74902, 1)
+text = "Created By"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.960784, 0.913725, 0.74902, 1)
+theme_override_constants/line_spacing = -6
+text = "Diego
+Escalante"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.960784, 0.913725, 0.74902, 1)
+text = "GaboDBabo "
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.666667, 0.392157, 0.301961, 1)
+theme_override_constants/line_spacing = -4
+text = "Design
+Code
+Graphics"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.666667, 0.392157, 0.301961, 1)
+theme_override_constants/line_spacing = -4
+text = "Music
+Sounds
+Voice Acting"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.960784, 0.913725, 0.74902, 1)
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Volume Settings:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Master  "
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Music  "
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Sounds  "
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "Voices  "
+horizontal_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(85, 0)
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("2_g7u8l")
+theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
+value = 80.0
+
+[node name="HSlider2" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("2_g7u8l")
+theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
+value = 100.0
+
+[node name="HSlider3" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("2_g7u8l")
+theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
+value = 100.0
+
+[node name="HSlider4" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("2_g7u8l")
+theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
+value = 100.0
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Assist Settings:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label2" type="Label" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Long Grapple "
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Slow Mode "
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+text = "Invinsibility "
+horizontal_alignment = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_constants/separation = -5
+
+[node name="CheckBox" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_icons/checked = ExtResource("4_qphhf")
+theme_override_icons/unchecked = ExtResource("5_vcwoj")
+flat = true
+
+[node name="CheckBox2" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/checked = ExtResource("4_qphhf")
+theme_override_icons/unchecked = ExtResource("5_vcwoj")
+flat = true
+
+[node name="CheckBox3" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/checked = ExtResource("4_qphhf")
+theme_override_icons/unchecked = ExtResource("5_vcwoj")
+flat = true

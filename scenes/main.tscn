@@ -1,7 +1,8 @@
-[gd_scene load_steps=65 format=3 uid="uid://dhpnel4052tqj"]
+[gd_scene load_steps=66 format=3 uid="uid://dhpnel4052tqj"]
 
 [ext_resource type="Script" path="res://common/game_controller.gd" id="1_1r3rh"]
 [ext_resource type="PackedScene" uid="uid://blwf38bh4id4k" path="res://player/player.tscn" id="1_rpdod"]
+[ext_resource type="PackedScene" uid="uid://bi6ibf4ocomk" path="res://pause/pause.tscn" id="2_yq3rl"]
 [ext_resource type="Script" path="res://camera/grapple_pack_camera.gd" id="3_srbtx"]
 [ext_resource type="TileSet" uid="uid://cgl371nhk6ocg" path="res://tileset.tres" id="7_8fi4k"]
 [ext_resource type="PackedScene" uid="uid://c58hpwkgh05i4" path="res://objects/collectibles/grapple_pack.tscn" id="10_csdbd"]
@@ -220,6 +221,8 @@ height = 64.0
 
 [node name="GameController" type="Node2D"]
 script = ExtResource("1_1r3rh")
+
+[node name="Pause" parent="." instance=ExtResource("2_yq3rl")]
 
 [node name="Player" parent="." instance=ExtResource("1_rpdod")]
 position = Vector2(-48, -7025)

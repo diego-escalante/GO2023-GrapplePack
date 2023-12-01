@@ -30,6 +30,10 @@ func _set_center() -> void:
 		screen_pos = Vector2(screen_pos.x / 180, screen_pos.y / 320)
 	_shader.set_shader_parameter("center", screen_pos)
 	
+	
+func is_faded() -> bool:
+	return _circle_size != MAX_CIRCLE_SIZE
+	
 
 func _set_circle_size() -> void:
 	_shader.set_shader_parameter("circle_size", _circle_size)
