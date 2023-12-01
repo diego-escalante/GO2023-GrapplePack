@@ -211,5 +211,5 @@ func set_input_enabled(movement: bool, grapple: bool) -> void:
 
 
 func _on_step_timer_timeout() -> void:
-	if is_on_floor() and velocity.x != 0:
+	if is_on_floor() and velocity.x != 0 and _input_enabled:
 		SoundController.play(_step_sound, -12, randf_range(0.8, 1.2))

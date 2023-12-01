@@ -22,7 +22,7 @@ func _ready() -> void:
 func _change() -> void:
 	if not _is_player_inside:
 		if _prev_power != _is_powered:
-			SoundController.play(_sound, -5, randf_range(0.7, 0.9))
+			SoundController.play(_sound, -14, randf_range(0.7, 0.9))
 		_sprite.play("default", 1 if _is_powered else -1)
 		_static_body.set_collision_layer_value(1, _is_powered)
 	else:
