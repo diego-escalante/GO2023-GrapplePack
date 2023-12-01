@@ -72,7 +72,7 @@ func _on_sounds_slider_value_changed(value):
 
 
 func _on_voices_slider_value_changed(value):
-	AudioServer.set_bus_volume_db(sound_bus, value)
+	AudioServer.set_bus_volume_db(voices_bus, value)
 
 
 func _on_long_grapple_check_toggled(toggled_on):

@@ -33,6 +33,12 @@ window/size/window_width_override=720
 window/size/window_height_override=1280
 window/stretch/mode="canvas_items"
 
+[file_customization]
+
+folder_colors={
+"res://voice_lines/": "yellow"
+}
+
 [gui]
 
 theme/custom="res://theme/default_theme.tres"

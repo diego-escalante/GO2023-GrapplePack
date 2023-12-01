@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_7vkmp")
-text = "Press P to pause the game and to access settings."
-duration = 10.0
+text = "Press P to pause and access settings."
+duration = 5.0
 source = "none"

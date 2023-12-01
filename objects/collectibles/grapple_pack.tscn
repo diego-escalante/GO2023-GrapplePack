@@ -1,16 +1,33 @@
-[gd_scene load_steps=13 format=3 uid="uid://c58hpwkgh05i4"]
+[gd_scene load_steps=18 format=3 uid="uid://c58hpwkgh05i4"]
 
 [ext_resource type="Shader" path="res://objects/collectibles/colorize.gdshader" id="1_23xww"]
 [ext_resource type="Texture2D" uid="uid://xi7fraef0135" path="res://aseprite/grapple_pack.png" id="1_r3ii7"]
 [ext_resource type="Script" path="res://objects/collectibles/grapple_pack.gd" id="2_u47mb"]
 [ext_resource type="PackedScene" uid="uid://cka1fbem226v1" path="res://title/title.tscn" id="3_00dyx"]
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="5_cow23"]
 [ext_resource type="Resource" uid="uid://beneasnqv0sh1" path="res://dialogue/tutorial/grapple_prompt.tres" id="5_eyxe7"]
 [ext_resource type="Resource" uid="uid://kn21jefpliy2" path="res://dialogue/tutorial/pause_prompt.tres" id="6_7hbcl"]
+[ext_resource type="AudioStream" uid="uid://lwymo424csb7" path="res://voice_lines/H8.wav" id="6_u6c2e"]
+[ext_resource type="AudioStream" uid="uid://d0ytfmfd734fp" path="res://voice_lines/F8.wav" id="7_s8isy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qt5fp"]
 shader = ExtResource("1_23xww")
 shader_parameter/color = Color(0.960784, 0.913725, 0.74902, 1)
 shader_parameter/percentage = 0.0
+
+[sub_resource type="Resource" id="Resource_ggqkr"]
+script = ExtResource("5_cow23")
+sound = ExtResource("6_u6c2e")
+text = "Did you get it?"
+duration = 1.0
+source = "handler"
+
+[sub_resource type="Resource" id="Resource_ur27v"]
+script = ExtResource("5_cow23")
+sound = ExtResource("7_s8isy")
+text = "I got it."
+duration = 0.0
+source = "fox"
 
 [sub_resource type="Animation" id="Animation_uu6vs"]
 length = 0.001
@@ -100,7 +117,7 @@ material = SubResource("ShaderMaterial_qt5fp")
 texture = ExtResource("1_r3ii7")
 script = ExtResource("2_u47mb")
 _packed_title = ExtResource("3_00dyx")
-_dialogues = Array[Resource("res://dialogue/dialogue.gd")]([ExtResource("5_eyxe7"), ExtResource("6_7hbcl")])
+_dialogues = Array[ExtResource("5_cow23")]([SubResource("Resource_ggqkr"), SubResource("Resource_ur27v"), ExtResource("5_eyxe7"), ExtResource("6_7hbcl")])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

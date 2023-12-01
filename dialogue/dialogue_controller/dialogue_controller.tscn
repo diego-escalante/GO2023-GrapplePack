@@ -19,9 +19,13 @@ theme_override_constants/margin_bottom = 8
 
 [node name="Label" type="Label" parent="MarginContainer"]
 modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_constants/line_spacing = -4
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"Voices"

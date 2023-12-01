@@ -21,19 +21,19 @@ func _on_body_entered(_body: Node2D) -> void:
 
 	ScreenFade.set_circle(0.15, 0.75)
 	TimeController.scale_time(0.01, 0.1)
+	DialogueController.queue_up(_dialogues)
 	await ScreenFade.done
 	var title = _packed_title.instantiate()
 	owner.add_child(title)
 	
 	_animation_player.play("despawn")
 	await _animation_player.animation_finished
-	(get_tree().get_first_node_in_group("player") as Player).set_input_enabled(true, true)
+	(get_tree().get_first_node_in_group("player") as Player).set_input_enabled(false, true)
 
 	ScreenFade.set_circle(1, 0.75)
 	TimeController.scale_time(1.0 if not GameState.slow_mode else 0.5, 0.75)
 	
-	await get_tree().create_timer(0.5).timeout
-	
-	DialogueController.queue_up(_dialogues)
+	await get_tree().create_timer(2).timeout
+	(get_tree().get_first_node_in_group("player") as Player).set_input_enabled(true, true)
 	
 	queue_free()

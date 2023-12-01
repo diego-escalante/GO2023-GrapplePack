@@ -18,43 +18,44 @@ script = ExtResource("1_ed5vr")
 stream = ExtResource("1_rhs2v")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Drum1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1g1fu")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Drum2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_v04lw")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Drum3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_svl00")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Guitar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_jxj4m")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Flute" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_nkeim")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Harp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wnugp")
 volume_db = -80.0
 autoplay = true
-bus = &"Music"
+bus = &"PreMusic"
 
 [node name="Synth" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_pydae")
+bus = &"PreMusic"

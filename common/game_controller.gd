@@ -1,9 +1,13 @@
 extends Node
 class_name GameController
 
+@export var _dialogues: Array[Dialogue] = []
+@export var _respawn_dialogues : Array[Dialogue] = []
+
 @onready var _player := $Player as Player
 @onready var _camera := $Camera as ShakingCamera2D
 @onready var _player_shader := (_player.get_node("AnimatedSprite2D") as AnimatedSprite2D).material as ShaderMaterial
+
 
 func _ready() -> void:
 	_set_dissolve(0)
@@ -23,6 +27,7 @@ func _ready() -> void:
 		tween.tween_method(_set_colorize, 1.0, 0.0, 0.2)
 		await get_tree().create_timer(0.5).timeout
 		_player.set_input_enabled(true, true)
+		DialogueController.queue_up(_respawn_dialogues)
 		return
 	
 	_player.just_grounded.connect(_on_intro_player_just_grounded)
@@ -63,9 +68,11 @@ func _on_intro_player_just_grounded() -> void:
 	_player._sprite.play("crouch")
 	_camera.add_trauma(0.85)
 	await get_tree().create_timer(1).timeout
+	DialogueController.queue_up(_dialogues)
+	await get_tree().create_timer(11).timeout
 	_player.freeze_position = false
 	_player.set_input_enabled(true, false)
-	MusicPlayer.set_volumes(0.2, 1, 0, 0, 0, 0, 0, 0)
+	MusicPlayer.set_volumes(1, 1, 0, 0, 0, 0, 0, 0)
 
 
 func respawn() -> void:

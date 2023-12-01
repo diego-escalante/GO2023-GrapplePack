@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-const HANDLER_COLOR := Color(0.471, 0.514, 0.455)
+const HANDLER_COLOR := Color(0.961, 0.914, 0.749)
 const FOX_COLOR := Color(0.667, 0.392, 0.302)
 const NONE_COLOR := Color(0.961, 0.914, 0.749)
 
@@ -12,6 +12,7 @@ var _tween : Tween
 var _used_dialogue_set := {}
 
 @onready var _label := $MarginContainer/Label as Label
+@onready var _audio := $AudioStreamPlayer as AudioStreamPlayer
 
 func _process_queue() -> void:
 	if _queue.is_empty() or _label.modulate != Color.TRANSPARENT:
@@ -30,9 +31,11 @@ func _display_dialogue(dialogue: Dialogue) -> void:
 			color = NONE_COLOR
 	_label.add_theme_color_override("font_color", color)
 	_label.text = dialogue.text
+	_audio.stream = dialogue.sound
+	_audio.play()
 	_tween = create_tween()
 	_tween.tween_property(_label, "modulate", Color.WHITE, 0.2)
-	_tween.tween_property(_label, "modulate", Color.TRANSPARENT, 0.2).set_delay(dialogue.duration)
+	_tween.tween_property(_label, "modulate", Color.TRANSPARENT, 0.2).set_delay(dialogue.duration if dialogue.sound == null else dialogue.sound.get_length() if dialogue.duration == 0 else dialogue.duration)
 	await _tween.finished
 	_process_queue()
 	
@@ -47,11 +50,12 @@ func _force_clear() -> void:
 
 
 func queue_up(dialogues: Array[Dialogue], high_priority := false) -> void:
-	for dialogue in dialogues:
-		if _used_dialogue_set.has(dialogue):
+	var dialogues_copy = dialogues.duplicate()
+	for dialogue in dialogues_copy:
+		if _used_dialogue_set.has(hash(dialogue.text)):
 			dialogues.erase(dialogue)
 		else:
-			_used_dialogue_set[dialogue] = null
+			_used_dialogue_set[hash(dialogue.text)] = null
 	
 	if high_priority:
 		dialogues.append_array(_queue)

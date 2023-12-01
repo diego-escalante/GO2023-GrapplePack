@@ -3,6 +3,8 @@ class_name Player
 
 signal just_grounded
 
+@export var saw_dialogue: Array[Dialogue] = []
+
 @export var _input_enabled := true
 @export var _grapple_enabled := true
 @export var freeze_position := false
@@ -47,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	# Grappled Physics
-	if _grapple.is_hooked():
+	if _grapple.is_hooked() and _input_enabled:
 		set_collision_mask_value(4, false)
 		_grapple_current_speed = min(_grapple_current_speed + _grapple_acceleration * delta, _grapple_pull_speed)
 		velocity = _grapple.get_direction() * _grapple_current_speed * GameConsts.PIXELS_PER_UNIT
@@ -181,6 +183,8 @@ func _calculate_run_velocity(velocity_x: float, h_axis: float, delta: float) -> 
 		)
 
 func _on_hit(_body: Node2D) -> void:
+	if _body.name == "Saw":
+		DialogueController.queue_up(saw_dialogue)
 	_hitbox.body_entered.disconnect(_on_hit)
 	owner.respawn()
 

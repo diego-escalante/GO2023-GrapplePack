@@ -1,10 +1,39 @@
-[gd_scene load_steps=42 format=3 uid="uid://blwf38bh4id4k"]
+[gd_scene load_steps=49 format=3 uid="uid://blwf38bh4id4k"]
 
 [ext_resource type="Shader" path="res://player/dissolve.gdshader" id="1_i2cui"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_ufqt5"]
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="2_chgjx"]
 [ext_resource type="Texture2D" uid="uid://d38ua220e4tcs" path="res://aseprite/player.png" id="2_q8lgk"]
+[ext_resource type="AudioStream" uid="uid://kpb62agk4q5b" path="res://voice_lines/H34.wav" id="3_3kmq8"]
+[ext_resource type="AudioStream" uid="uid://fkuwf05nnfgy" path="res://voice_lines/H35.wav" id="4_erc15"]
 [ext_resource type="Texture2D" uid="uid://c7cteu2w65n5l" path="res://aseprite/player_no_grapple.png" id="4_mt424"]
 [ext_resource type="PackedScene" uid="uid://d0h6gwsg2ewh2" path="res://player/grapple/grapple.tscn" id="6_quhdi"]
+
+[sub_resource type="Resource" id="Resource_1sk4h"]
+script = ExtResource("2_chgjx")
+text = ""
+duration = 2.0
+source = "handler"
+
+[sub_resource type="Resource" id="Resource_f27t6"]
+script = ExtResource("2_chgjx")
+sound = ExtResource("3_3kmq8")
+text = "Saw that coming."
+duration = 0.0
+source = "handler"
+
+[sub_resource type="Resource" id="Resource_ia60x"]
+script = ExtResource("2_chgjx")
+text = ""
+duration = 2.0
+source = "handler"
+
+[sub_resource type="Resource" id="Resource_454qx"]
+script = ExtResource("2_chgjx")
+sound = ExtResource("4_erc15")
+text = "...no?"
+duration = 0.0
+source = "handler"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pj5wf"]
 shader = ExtResource("1_i2cui")
@@ -339,6 +368,7 @@ z_index = 1
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_ufqt5")
+saw_dialogue = Array[ExtResource("2_chgjx")]([SubResource("Resource_1sk4h"), SubResource("Resource_f27t6"), SubResource("Resource_ia60x"), SubResource("Resource_454qx")])
 _time_to_run_speed = 0.2
 _jump_distance = 2.0
 _jump_min_height = 1.0

@@ -1,7 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://d14nqbqk1syth"]
+[gd_scene load_steps=14 format=3 uid="uid://d14nqbqk1syth"]
 
 [ext_resource type="Script" path="res://objects/powerables/retractable_wall/retractable_wall.gd" id="1_5xg1p"]
 [ext_resource type="Texture2D" uid="uid://trklmv5kn05c" path="res://aseprite/tilemap.png" id="2_gme2g"]
+[ext_resource type="Script" path="res://dialogue/dialogue.gd" id="2_qm60q"]
+[ext_resource type="AudioStream" uid="uid://dyalbqxst074t" path="res://voice_lines/H37.wav" id="3_6n1jk"]
+[ext_resource type="AudioStream" uid="uid://redoyxtiubwn" path="res://voice_lines/H38.wav" id="4_l84cc"]
+
+[sub_resource type="Resource" id="Resource_vrmqc"]
+script = ExtResource("2_qm60q")
+sound = ExtResource("3_6n1jk")
+text = "I thought you were going to get stuck there."
+duration = 0.0
+source = "handler"
+
+[sub_resource type="Resource" id="Resource_li7ig"]
+script = ExtResource("2_qm60q")
+sound = ExtResource("4_l84cc")
+text = "Must have caught it in playtesting."
+duration = 0.0
+source = "handler"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8pf0j"]
 atlas = ExtResource("2_gme2g")
@@ -40,6 +57,7 @@ size = Vector2(16, 15)
 
 [node name="RetractableWall" type="Node2D"]
 script = ExtResource("1_5xg1p")
+_dialogue = Array[ExtResource("2_qm60q")]([SubResource("Resource_vrmqc"), SubResource("Resource_li7ig")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_u3pt6")
