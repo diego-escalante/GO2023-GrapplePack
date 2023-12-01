@@ -1,9 +1,25 @@
 extends CanvasLayer
 
+@export var sample_sounds: Array[AudioStream] = []
+
 var _is_paused := false
 var _tweening := false
+var master_bus := AudioServer.get_bus_index("Master")
+var music_bus := AudioServer.get_bus_index("Music")
+var sound_bus := AudioServer.get_bus_index("Sounds")
+var voices_bus := AudioServer.get_bus_index("Voices")
+
+
+var _player : Player
+var _player_hitbox : Area2D
 
 @onready var _control := $Control
+
+
+func _ready() -> void:
+	visible = false
+	_player = get_tree().get_first_node_in_group("player") as Player
+	_player_hitbox = _player.get_node("Hitbox") as Area2D
 
 func _unhandled_input(event: InputEvent):
 	if event.is_action_pressed("pause") and not _tweening:
@@ -34,3 +50,27 @@ func _unhandled_input(event: InputEvent):
 			_tweening = false
 			DialogueController.visible = true
 			get_tree().paused = false
+
+
+func _on_master_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(master_bus, value)
+
+
+func _on_music_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(music_bus, value)
+
+
+func _on_sounds_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(sound_bus, value)
+
+
+func _on_voices_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(sound_bus, value)
+
+
+func _on_long_grapple_check_toggled(toggled_on):
+	_player._grapple.grapple_length = 10 if toggled_on else 5
+
+
+func _on_invinsibility_check_toggled(toggled_on):
+	_player_hitbox.set_collision_mask_value(5, not toggled_on)

@@ -26,7 +26,6 @@ border_color = Color(0.215686, 0.164706, 0.223529, 1)
 [node name="Pause" type="CanvasLayer"]
 process_mode = 3
 layer = 15
-visible = false
 script = ExtResource("1_mpjwk")
 
 [node name="Control" type="Control" parent="."]
@@ -197,7 +196,7 @@ custom_minimum_size = Vector2(85, 0)
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="HSlider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+[node name="master_slider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = ExtResource("2_g7u8l")
@@ -205,9 +204,13 @@ theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
-value = 80.0
+min_value = -30.0
+max_value = 0.0
+step = 0.0
+value = -6.0
+scrollable = false
 
-[node name="HSlider2" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+[node name="music_slider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = ExtResource("2_g7u8l")
@@ -215,9 +218,12 @@ theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
-value = 100.0
+min_value = -30.0
+max_value = 0.0
+step = 0.0
+scrollable = false
 
-[node name="HSlider3" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+[node name="sounds_slider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = ExtResource("2_g7u8l")
@@ -225,9 +231,12 @@ theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
-value = 100.0
+min_value = -30.0
+max_value = 0.0
+step = 0.0
+scrollable = false
 
-[node name="HSlider4" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
+[node name="voices_slider" type="HSlider" parent="Control/VBoxContainer/HBoxContainer3/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = ExtResource("2_g7u8l")
@@ -235,7 +244,10 @@ theme_override_icons/grabber_highlight = ExtResource("3_vw8rq")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ufhvr")
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_1p2rf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_1p2rf")
-value = 100.0
+min_value = -30.0
+max_value = 0.0
+step = 0.0
+scrollable = false
 
 [node name="Label4" type="Label" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -272,7 +284,7 @@ horizontal_alignment = 2
 layout_mode = 2
 theme_override_constants/separation = -5
 
-[node name="CheckBox" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+[node name="long_grapple_check" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -281,16 +293,23 @@ theme_override_icons/checked = ExtResource("4_qphhf")
 theme_override_icons/unchecked = ExtResource("5_vcwoj")
 flat = true
 
-[node name="CheckBox2" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+[node name="slow_mode_check" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/checked = ExtResource("4_qphhf")
 theme_override_icons/unchecked = ExtResource("5_vcwoj")
 flat = true
 
-[node name="CheckBox3" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
+[node name="invinsibility_check" type="CheckBox" parent="Control/VBoxContainer/HBoxContainer4/VBoxContainer2"]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/checked = ExtResource("4_qphhf")
 theme_override_icons/unchecked = ExtResource("5_vcwoj")
 flat = true
+
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/VBoxContainer2/master_slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/VBoxContainer2/music_slider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/VBoxContainer2/sounds_slider" to="." method="_on_sounds_slider_value_changed"]
+[connection signal="value_changed" from="Control/VBoxContainer/HBoxContainer3/VBoxContainer2/voices_slider" to="." method="_on_voices_slider_value_changed"]
+[connection signal="toggled" from="Control/VBoxContainer/HBoxContainer4/VBoxContainer2/long_grapple_check" to="." method="_on_long_grapple_check_toggled"]
+[connection signal="toggled" from="Control/VBoxContainer/HBoxContainer4/VBoxContainer2/invinsibility_check" to="." method="_on_invinsibility_check_toggled"]
