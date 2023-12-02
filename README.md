@@ -1,3 +1,4 @@
-# Github Game Off 2023
+# Grapple Pack
+## [Play the game here!](https://diego-escalante.itch.io/grapple-pack)
 
-This repo houses my in-progress submission for the 2023 Github Game Off game jam during the month of November. Check back later for the released game after the jam! (Or clone and build the game yourself. Or ask me to grant you early access to game on itch.io. 😉)
+This repo houses our submission, Grapple Pack, for the 2023 Github Game Off game jam during the month of November.
