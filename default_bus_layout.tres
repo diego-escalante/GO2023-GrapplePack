@@ -31,4 +31,4 @@ bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 6.02
-bus/5/send = &"Master"
+bus/5/send = &"Sounds"
