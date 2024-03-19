@@ -9,7 +9,7 @@
 
 ## [Play the game here!](https://diego-escalante.itch.io/grapple-pack)
 
-This game was made in the month of November for the 2023 GitHub Game Off jam. The theme of the jam was "scale." It was made with Godot 4 using GDScript. You can read the game's feedback [here](https://itch.io/jam/game-off-2023/rate/234608).
+This game was made in the month of November for the 2023 GitHub Game Off jam. The theme of the jam was "scale." It was made with Godot 4 using GDScript. You can read the game's feedback [here](https://itch.io/jam/game-off-2023/rate/2346085).
 
 ## Setting Up the Project Locally
 1. Make sure you have [Godot 4](https://godotengine.org/download) installed, as that is the version of the engine that was used for this game. No need to get the .NET version of Godot, as this project purely uses GDScript.
