@@ -1,4 +1,4 @@
-# Stomper
+# Grapple Pack
 
 <p align="center">
   <picture>
